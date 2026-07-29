@@ -1,101 +1,83 @@
+---
+title: Codex Workspace Best Practices
+description: Optimization blueprint for configuring OpenAI Codex workspace personas, execution guardrails, file inheritance rules, and AGENTS.md cascade hierarchy.
+status: active
+tags: [codex, workspace, best-practices, agents, configuration]
+last_verified: 2026-07-29
+layer: hot
+applies_to: openai codex workspace configuration
+---
+
 # Codex Workspace Best Practices
 
-An optimization blueprint for configuring OpenAI Codex workspace personas, execution guardrails, and file inheritance rules.
+## Overview
 
----
+Optimization blueprint for configuring OpenAI Codex workspace personas, execution guardrails, and file inheritance rules. Covers document length metrics, file cascade architecture, and the five core design best practices.
 
-## 1. Document Scope & Length Metrics
+## Background
+
+**Key terms:** AGENTS.md — the primary rule file Codex reads at project root; AGENTS.override.md — per-directory override files for localized constraints.
+
+**Context:** Codex merges instructions across multiple folder levels. Understanding the cascade hierarchy is essential to avoid rule conflicts and token waste.
+
+## Document Scope and Length Metrics
 
 ### The 32 KiB Horizon
-OpenAI Codex processes your workspace layout using an automatic discovery chain. It scans up to a strict hard limit of **32 KiB** across its discovery path. Exceeding this metric cuts off rules abruptly, causing unpredictable agent responses.
+
+Codex scans up to a strict hard limit of **32 KiB** across its discovery path. Exceeding this cuts off rules abruptly.
 
 ### Target Length Metrics
-* **Optimal Payload Size**: 8 KB � 15 KB (Roughly **1,500 to 3,500 words**).
-* **Context Conservation Target**: Keeping your rules file lean saves context window tokens, leaving more memory available for actual codebase reasoning loops.
-* **Growth Buffer**: Cap your baseline documentation at ~12 KB to leave breathing room for adding local project overrides later.
 
----
+- **Optimal Payload Size**: 8 KB – 15 KB (roughly 1,500 to 3,500 words).
+- **Context Conservation**: keeping rules files lean saves context tokens for codebase reasoning.
+- **Growth Buffer**: cap baseline documentation at ~12 KB to leave room for local overrides.
 
-## 2. File Architecture & Cascade Path
+## File Architecture and Cascade Path
 
-Codex merges your instructions across multiple folders. Rather than stuffing all rules into one long document, organize them across these layers:
-
+Codex merges instructions across multiple layers:
 
 ```
-
-~/.codex/AGENTS.md                <-- 1. Global Developer Habits (Lowest priority)
-+-- [Project Root]/AGENTS.md      <-- 2. Project Architecture & Style Standards
-+-- [Sub-Folder]/AGENTS.override.md  <-- 3. Isolated Constraints (Highest priority)
-
+~/.codex/AGENTS.md                — Global developer habits (lowest priority)
++-- [Project Root]/AGENTS.md      — Project architecture and style standards
++-- [Sub-Folder]/AGENTS.override.md — Isolated constraints (highest priority)
 ```
 
-1.  **Global Level (`~/.codex/AGENTS.md`)**: Define your permanent, personal habits across all projects (e.g., `"Prefer absolute path mappings," "Always use pnpm over npm"`).
-2.  **Project Root (`/AGENTS.md`)**: Outline the main repository constraints (Tech stack definitions, directory layout maps, linting paths).
-3.  **Directory Level (`/[folder-name]/AGENTS.override.md`)**: Apply localized overrides to highly sensitive folders (e.g., placing an override file inside `/src/services/payments/` to enforce: `Permissions: Edit: Deny`).
+1. **Global Level (`~/.codex/AGENTS.md`)**: permanent personal habits across all projects.
+2. **Project Root (`/AGENTS.md`)**: main repository constraints — tech stack, directory layout, linting.
+3. **Directory Level (`/[folder]/AGENTS.override.md`)**: localized overrides for sensitive folders.
 
----
+## Core Design Best Practices
 
-## 3. The 5 Core Design Best Practices
+### Enforce Concrete Boundaries Over Abstract Advice
 
-### 1. Enforce Concrete Boundaries Over Abstract Advice
-Codex relies on clear, deterministic rules rather than vague descriptions.
-* ? **Vague**: *"Write clean, performant React components."*
-* font-style: italic; (The model cannot measure "clean" or "performant" code directly).
-* ?? **Deterministic**: *"Write components exclusively using the functional React 19 style. Avoid type assertions (`as unknown`) and do not use the `any` keyword."*
+- **Vague**: "Write clean, performant React components."
+- **Deterministic**: "Write components using functional React 19 style. Avoid type assertions (`as unknown`) and the `any` keyword."
 
-### 2. Establish a Strict Definition of Done (DoD)
-Provide a clear checklist that Codex must complete before handing a task back to you. This ensures the model tests and validates its own code.
-* *Example Section*:
-    ```markdown
-    Before signaling task completion, you must:
-    1. Confirm the project compiles successfully using `pnpm build`.
-    2. Run `pnpm lint` and resolve any new styling warnings.
-    3. Update or create the corresponding unit tests inside `src/__tests__/`.
-    ```
+### Establish a Strict Definition of Done (DoD)
 
-### 3. Offload Context Using Documentation Anchors
-If you have extensive documentation, do not copy-paste it directly into your rules file. Instead, use clear pointers to tell Codex where to find that information.
-* *Example Anchor*: `"When adding or editing database tables, follow the design principles detailed in docs/DB_STANDARDS.md before creating migrations."*
+Before signaling completion, Codex must:
 
-### 4. Isolate Tool & File Permissions
-Prevent the model from modifying legacy files or breaking core configurations by setting explicit read/write rules.
-* *Example Directive*: `"You are strictly read-only within the `/infra/terraform/` directory. You may read these files for context, but do not make changes to them directly."*
+1. Confirm the project compiles using `pnpm build`.
+2. Run `pnpm lint` and resolve new warnings.
+3. Update or create corresponding unit tests.
 
-### 5. Prevent Token Bloat with Code Signatures
-When adding code references to your rules file, only include the basic signatures or type outlines instead of pasting entire multi-line logic implementation details.
+### Offload Context Using Documentation Anchors
 
----
+Use clear pointers instead of copying documentation into rules files:
 
-## 4. Production-Ready Template (`AGENTS.md`)
+> "When editing database tables, follow the design principles in `docs/DB_STANDARDS.md` before creating migrations."
 
-```markdown
-# Project Name: Workspace Rules & Alignment
+### Isolate Tool and File Permissions
 
-## 1. Project Context & Technical Stack
-- **Purpose**: [Brief 1-sentence overview, e.g., Real-time inventory tracking platform]
-- **Primary Tech**: Next.js 15 (App Router), React 19, TypeScript, Prisma, PostgreSQL.
-- **Key Directories**:
-  - `/src/app`: Next.js core application router logic.
-  - `/src/components/ui`: Shared UI elements built using shadcn/ui styles.
-  - `/prisma/schema.prisma`: Database schema definition file.
+Prevent modification of legacy files with explicit read/write rules:
 
-## 2. Engineering & Architecture Conventions
-- **State Management**: Use React Server Components (RSC) for data fetching. Use `'use client'` strictly at the terminal UI leaves.
-- **Error Handling**: Do not allow silent failures. Wrap API pathways in global try/catch blocks and send logs through `@/lib/logger`.
+> "You are strictly read-only within `/infra/terraform/`. Read for context but do not modify."
 
-## 3. Environment & Execution Commands
-- **Package Manager**: Always use `pnpm` (do not run `npm` or `yarn`).
-- **Testing Engine**: We use Vitest. Run test sweeps via `pnpm test`.
+### Prevent Token Bloat With Code Signatures
 
-## 4. Operational Guardrails & Constraints (CRITICAL)
-- **Security**: Never hardcode credentials, tokens, or API keys. Read them securely via `process.env`.
-- **System Changes**: Ask for user confirmation before executing commands that install new third-party production packages.
+Include only basic signatures or type outlines instead of pasting entire multi-line implementations.
 
-## 5. Definition of Done
-Before completing any coding task, Codex MUST satisfy this checklist:
-1. Validate that the TypeScript types compile completely without syntax errors.
-2. Execute local linting sweeps (`pnpm lint`) and resolve any formatting issues.
-3. Provide a brief summary of all modified files and changed functions in your final response.
+## Related Documents
 
-```
-
+- [Reference Standards](../misc/reference-standards.md) — the conventions this document follows.
+- [OpenCode Best Practices](../misc/opencode-best-practices.md) — comparable practices for OpenCode configuration.

@@ -1,6 +1,16 @@
+---
+title: Skills Best Practices for AI Assistants
+description: Guidelines for creating, reviewing, and maintaining Skills that make AI assistants more reliable at repeatable tasks through focused instructions and clear workflow guidance.
+status: active
+tags: [skills, best-practices, skill-design, agent-instructions]
+last_verified: 2026-07-29
+layer: cold
+applies_to: SKILL.md, agent skills, skill authors
+---
+
 # Skills Best Practices for AI Assistants
 
-## Purpose
+## Overview
 
 Use this guide when creating, reviewing, or maintaining Skills. A Skill should make an AI assistant more reliable at a specific repeatable task by providing focused instructions, reusable resources, and clear workflow guidance.
 
@@ -68,6 +78,7 @@ Aim for **100–300 lines** as the ideal range, and stay under **~500 lines**. I
 
 Every `SKILL.md` should begin with:
 
+**[Copy-Safe]**
 ```yaml
 ---
 name: skill-name
@@ -90,6 +101,7 @@ Optional fields:
 
 Example with all fields:
 
+**[Copy-Safe]**
 ```yaml
 ---
 name: python-performance-review
@@ -126,12 +138,14 @@ A good description states:
 
 Weak description:
 
+**[Conceptual]**
 ```yaml
 description: Helps with Python.
 ```
 
 Good description:
 
+**[Copy-Safe]**
 ```yaml
 description: Review Python code for performance bottlenecks, algorithmic complexity, memory allocation issues, vectorization opportunities, and profiling recommendations. Use whenever optimizing Python performance.
 ```
@@ -192,7 +206,8 @@ The following sections produce consistently reliable skill behavior.
 
 Start with a concise explanation.
 
-```
+**[Conceptual]**
+```text
 This skill performs structured Python performance
 analysis using static inspection and profiling.
 ```
@@ -268,7 +283,8 @@ Instead of vague advice:
 
 Write deterministic rules.
 
-```
+**[Copy-Safe]**
+```text
 If complexity exceeds O(n log n)
 recommend algorithm redesign.
 
@@ -285,7 +301,8 @@ Rules outperform prose.
 
 Always specify the output.
 
-```
+**[Copy-Safe]**
+```text
 Summary
 Major Issues
 Evidence
@@ -303,13 +320,15 @@ Examples are one of the strongest improvements you can make.
 
 Input:
 
-```
+**[Conceptual]**
+```text
 Optimize this NumPy code.
 ```
 
 Output:
 
-```
+**[Conceptual]**
+```text
 Summary
 Issue 1
 Issue 2
@@ -346,7 +365,8 @@ Graceful degradation is preferable to failure.
 
 Instead of embedding hundreds of lines:
 
-```
+**[Copy-Safe]**
+```text
 See:
 references/style-guide.md
 references/api.md
@@ -363,6 +383,7 @@ Design Skills so the assistant loads only what it needs.
 
 Use `SKILL.md` for navigation:
 
+**[Copy-Safe]**
 ```md
 For invoice field definitions, see `references/invoice-schema.md`.
 For deterministic PDF extraction, run `scripts/extract_invoice.py`.
@@ -425,12 +446,14 @@ Reference tools, connectors, or MCP servers only when the Skill depends on them.
 
 Prefer capability-level instructions:
 
+**[Conceptual]**
 ```md
 Retrieve the latest customer notes from the CRM connector before summarizing renewal risk.
 ```
 
 Avoid brittle low-level instructions unless necessary:
 
+**[Conceptual]**
 ```md
 Call `crm.search_records` with this exact JSON payload.
 ```
@@ -479,6 +502,7 @@ Good instructions are:
 
 Use imperative wording:
 
+**[Copy-Safe]**
 ```md
 Ask for the target audience before drafting the report.
 Validate all extracted totals against the source spreadsheet.
@@ -487,6 +511,7 @@ Use the approved tone examples in `references/style-guide.md`.
 
 Avoid instructions that are too broad:
 
+**[Conceptual]**
 ```md
 Be helpful and accurate.
 Write clearly.
@@ -495,12 +520,14 @@ Use good judgment.
 
 Avoid dumping generic background:
 
+**[Conceptual]**
 ```md
 Marketing is the process of promoting products and services...
 ```
 
 Avoid hiding trigger rules only in the body:
 
+**[Conceptual]**
 ```md
 ## When to Use This Skill
 Use this Skill for...
@@ -516,13 +543,15 @@ Trigger rules belong primarily in the YAML `description`.
 
 Bad:
 
-```
+**[Conceptual]**
+```text
 Expert software engineer.
 ```
 
 Good:
 
-```
+**[Copy-Safe]**
+```text
 Review PostgreSQL query plans and recommend
 index improvements.
 ```
@@ -531,13 +560,15 @@ index improvements.
 
 Bad:
 
-```
+**[Conceptual]**
+```text
 This helps write SQL.
 ```
 
 Good:
 
-```
+**[Copy-Safe]**
+```text
 Use whenever optimizing PostgreSQL queries,
 EXPLAIN plans, indexes, joins, or slow queries.
 ```
@@ -546,13 +577,15 @@ EXPLAIN plans, indexes, joins, or slow queries.
 
 Bad:
 
-```
+**[Conceptual]**
+```text
 Analyze the code.
 ```
 
 Good:
 
-```
+**[Copy-Safe]**
+```text
 1. Parse repository
 2. Locate entry point
 3. Inspect dependencies
@@ -572,7 +605,8 @@ Don't place API docs, architecture docs, coding standards, or templates inside `
 
 Bad (single file covering everything):
 
-```
+**[Conceptual]**
+```text
 Deployment
 Testing
 Monitoring
@@ -630,6 +664,7 @@ Before packaging a Skill, check that:
 
 ## Canonical Template
 
+**[Copy-Safe]**
 ```markdown
 ---
 name: skill-name
@@ -717,3 +752,8 @@ The highest-quality `SKILL.md` files share consistent traits:
 * Concise, operational language that reads like executable instructions rather than human-facing documentation.
 
 A Skill is successful when it helps the assistant perform a repeatable task better than it would from general instructions alone. Keep the Skill small, specific, and reusable.
+
+## Related Documents
+
+- [Nanobot Skills](../skills/nanobot-skills.md) — nanobot-specific skill features including SkillsLoader and MCP server pairing
+- [Reference File Standards](../misc/reference-standards.md) — standards for reference documents in this repository

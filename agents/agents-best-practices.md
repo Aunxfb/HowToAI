@@ -1,4 +1,14 @@
-# The Definitive Guide to AGENTS.md: Best Practices & Design Patterns
+---
+title: Best Practices for AGENTS.md Files
+description: Reference guide for designing high-performance AGENTS.md files that guide AI coding agents with progressive disclosure, optimal sizing, and production-ready templates. For developers and teams using AI coding tools.
+status: active
+tags: [agents, agents-md, configuration, best-practices, progressive-disclosure, ai-coding, subagents]
+last_verified: 2026-07-29
+layer: warm
+applies_to: repository-level AI agent configuration files
+---
+
+# Best Practices for AGENTS.md Files
 
 An `AGENTS.md` file is a repository-level operational policy file that guides AI coding agents (such as GitHub Copilot, Cursor, Claude Code, Windsurf, and custom terminal-native runtimes) on how to interact with your specific codebase. Positioned at the root of your repository, it serves as a bridge between the model's general training and your specific architectural conventions, tooling preferences, and execution workflows.
 
@@ -6,7 +16,11 @@ Unlike classic user documentation (`README.md`), an `AGENTS.md` file is written 
 
 ---
 
-## 1. Core Concepts & Anatomy of AGENTS.md
+## Overview
+
+This document covers the anatomy, structure, and best practices for writing high-performance `AGENTS.md` files. It is for developers and teams who want their AI coding agents to act predictably, follow project conventions, and respect security boundaries without consuming excessive context tokens.
+
+## Core Concepts
 
 ### The Concept of "Progressive Disclosure"
 
@@ -29,6 +43,7 @@ Because modern engineering teams use diverse AI tooling, `AGENTS.md` has emerged
 * **GitHub Copilot / GitLab Duo**: Deeply parses `AGENTS.md` natively out of the box to locate tech stack specifics and explicit tool flags.
 * **Claude Code**: Natively reads **`CLAUDE.md`**. Best practice is to create a lightweight `CLAUDE.md` that defines quick execution sequences and references `AGENTS.md` for extended rules.
 * **Cursor**: Leverages the newer `.mdc` rule standard. A `.mdc` file utilizes a YAML frontmatter block to determine global or directory-scoped activation via glob patterns:
+> [Conceptual] — Cursor `.mdc` frontmatter pattern.
 ```yaml
 ---
 description: Applied when editing React state components
@@ -41,7 +56,7 @@ globs: ["src/components/**/*"]
 
 ---
 
-## 2. Optimal Sizing & Budgeting
+## Sizing and Budgeting
 
 * **The Rule of Thumb**: Keep the file **between 100 and 150 lines** (~800 to 1,500 tokens). This is a community-observed heuristic shared across Codex CLI best-practice guides and the AGENTS.md community (agents.md). OpenAI Codex enforces a 32 KiB discovery limit (`project_doc_max_bytes`); content beyond that threshold is silently truncated.
 * **The Research Reality**: Performance degradation from long context is a documented phenomenon, but it depends on *position* and *distractor density*, not purely on line count. The canonical study — "Lost in the Middle" (Liu et al., TACL 2024) — found U-shaped accuracy curves: models perform best on information at the start or end of context, and can drop by ~20 percentage points when relevant information sits in the middle. Chroma's "Context Rot" study (Hong et al., 2025) tested 18 frontier models and confirmed all degrade as input grows, with degradation at every increment. The practical implication for AGENTS.md: keep instructions early in the file and reference detailed specs externally rather than burying them mid-file.
@@ -49,7 +64,7 @@ globs: ["src/components/**/*"]
 
 ---
 
-## 3. Mandatory Structure of a High-Performance AGENTS.md
+## Mandatory Structure
 
 To optimize an agent's structural interpretation, the document must transition from **high-level environment definition** down to **verifiable execution loops and behavioral boundaries**.
 
@@ -61,9 +76,11 @@ To optimize an agent's structural interpretation, the document must transition f
 
 ---
 
-## 4. Production-Ready Template
+## Production-Ready Template
 
 Below is a production-optimized blueprint for an `AGENTS.md` file designed for modern AI development workflows.
+
+> **[Copy-Safe]** — Ready to adapt with project-specific commands and paths.
 
 ```markdown
 # Project Workspace Agent Configuration (AGENTS.md)
@@ -134,11 +151,13 @@ Before marking a task as finalized, ensure:
 
 ---
 
-## 5. SUBAGENTS BEST PRACTICES
+## Subagents Best Practices
 
 Modern AI coding workflows increasingly use **specialized subagents** coordinated by an **orchestrator agent** instead of relying on a single general-purpose assistant.
 
 Typical architecture:
+
+> [Conceptual] — Orchestrator subagent architecture layout.
 
 ``` text
 User
@@ -211,6 +230,8 @@ The orchestrator combines the outputs into a single response.
 
 Prefer:
 
+> [Conceptual] — Flat delegation hierarchy.
+
 ``` text
 Orchestrator
  |-- Backend
@@ -244,8 +265,18 @@ Repository-specific knowledge should come from referenced documentation rather t
 
 ---
 
-## 6. Key Pitfalls to Avoid
+## Key Pitfalls to Avoid
 
 * **Relying on Hardcoded Path Layouts**: Avoid specifying static, absolute file paths for domain modules (e.g., `Auth handlers live in /src/modules/auth/handlers.ts`). If a directory gets refactored, the agent will break trying to find a non-existent index. Instead, specify path-agnostic discoverability: *"Authentication handlers use JWT; find their exact boundaries dynamically via workspace `grep` filters."*
 * **Enforcing Vague Prose Guidelines**: Refrain from using sentences like *"write clean code"* or *"be careful with memory leaks."* AI engines process actionable assertions much more effectively than subjective descriptions. Use concrete boundaries: *"Always check database handle pools are closed using context managers."*
-* **Failure to Synchronize Downstream Tool Variations**: If you are maintaining a hybrid tooling stack (e.g., using `AGENTS.md` alongside `.cursorrules`), ensure they are synchronized. Conflicting setup commands across parallel files (like specifying `npm` in one file and `pnpm` in another) will cause loop failures as agents attempt to resolve competing directives. 
+* **Failure to Synchronize Downstream Tool Variations**: If you are maintaining a hybrid tooling stack (e.g., using `AGENTS.md` alongside `.cursorrules`), ensure they are synchronized. Conflicting setup commands across parallel files (like specifying `npm` in one file and `pnpm` in another) will cause loop failures as agents attempt to resolve competing directives.
+
+## Related Documents
+
+- [Subagents Best Practices](#subagents-best-practices) — general principles for subagent architecture (within this document)
+- [Porting Agents and Skills Between Harnesses](opencode-claude-codex-porting.md) — converting agent/skill definitions across OpenCode, Claude Code, and Codex
+- [OpenCode Agents](opencode-agents.md) — configuring and using agents in OpenCode
+- [Claude Code Subagents](claude-code-subagents.md) — creating and managing subagents in Claude Code
+- [Codex Subagents](codex-subagents.md) — subagent workflows and custom agents in OpenAI Codex
+- [Nanobot Persona Engineering Guide](nanobot-personas-guide.md) — workspace personas for the nanobot framework
+- [Codex Agent Conversion](codex-agent-conversion.md) — mapping OpenCode agents to Codex-compatible structure

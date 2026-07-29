@@ -1,14 +1,22 @@
-# Nanobot Persona Engineering Guide
-
-## Building Production-Grade Workspace Personas for HKUDS/nanobot
-
-This guide explains how to engineer a highly stable, instruction-drift-resistant workspace persona specifically optimized for the `HKUDS/nanobot` framework.
-
-The goal is to design files that maximize your prompt budget while remaining completely deterministic over long-running chat sessions.
-
+---
+title: Nanobot Persona Engineering Guide
+description: How to build production-grade, instruction-drift-resistant workspace personas for the HKUDS/nanobot framework.
+status: active
+tags: [nanobot, personas, agents, workspace, prompt-engineering]
+last_verified: 2026-07-29
+layer: warm
+applies_to: HKUDS/nanobot
 ---
 
-# Core Philosophy
+# Nanobot Persona Engineering Guide
+
+> Building production-grade workspace personas for HKUDS/nanobot.
+
+## Overview
+
+This guide explains how to engineer a highly stable, instruction-drift-resistant workspace persona specifically optimized for the `HKUDS/nanobot` framework. The goal is to design files that maximize your prompt budget while remaining completely deterministic over long-running chat sessions.
+
+## Core Philosophy
 
 A production-grade nanobot workspace is built on **operational clarity over emotional roleplay**.
 
@@ -23,7 +31,7 @@ The most common failure mode in persona design is writing a heavy, creative back
 
 ---
 
-# Realized Workspace Directory Layout
+## Workspace Directory Layout
 
 This is the exact structure expected by the nanobot engine room when initializing a workspace via `nanobot onboard`:
 
@@ -44,7 +52,7 @@ This is the exact structure expected by the nanobot engine room when initializin
 
 ---
 
-# Prompt Composition Order
+## Prompt Composition Order
 
 When a message hits a nanobot channel (e.g., Telegram or WebUI), `build_system_prompt()` concatenates your workspace files in a specific order. Understanding this stack is critical because models prioritize instructions differently based on their position in the context window.
 
@@ -59,11 +67,11 @@ When a message hits a nanobot channel (e.g., Telegram or WebUI), `build_system_p
 
 ---
 
-# 1. `SOUL.md` (The Identity Layer)
+## `SOUL.md` (Identity Layer)
 
 This file defines the immutable traits of the agent. It sets behavioral invariants, refusal boundaries, and communication tone. It should never contain specific tool workflows or file-editing logic.
 
-### Production Example: `SOUL.md`
+### Production Example: `SOUL.md` [Copy-Safe]
 
 ```markdown
 # SOUL
@@ -89,11 +97,11 @@ You are a precise, security-focused systems copilot. Your identity is rooted in 
 
 ---
 
-# 2. `AGENTS.md` (The Active Runtime Manual)
+## `AGENTS.md` (Runtime Manual)
 
 Introduced as a core runtime manual (e.g., matching patterns optimized in PR #1219), `AGENTS.md` acts as the executive guardrail. It governs tool usage, sub-agent task delegation boundaries, and background loop automation rules.
 
-### Production Example: `AGENTS.md`
+### Production Example: `AGENTS.md` [Copy-Safe]
 
 ```markdown
 # AGENT OPERATIONS
@@ -116,11 +124,11 @@ Introduced as a core runtime manual (e.g., matching patterns optimized in PR #12
 
 ---
 
-# 3. `USER.md` (The Environment Matrix)
+## `USER.md` (Environment Matrix)
 
 This file acts as the agent's localized tracking layer. It explicitly details your host environment, preventing the agent from guessing paths or assuming the wrong operating system.
 
-### Production Example: `USER.md`
+### Production Example: `USER.md` [Copy-Safe]
 
 ```markdown
 # USER PROFILE
@@ -139,11 +147,11 @@ This file acts as the agent's localized tracking layer. It explicitly details yo
 
 ---
 
-# 4. `skills/` (The On-Demand Extension Layer)
+## `skills/` (Extension Layer)
 
 To prevent `AGENTS.md` from bloating, specialized behaviors must be isolated into the `skills/` folder. Every valid skill must contain a `SKILL.md` file featuring precise frontmatter.
 
-### Production Example: `skills/db_optimizer/SKILL.md`
+### Production Example: `skills/db_optimizer/SKILL.md` [Copy-Safe]
 
 ```markdown
 ---
@@ -168,8 +176,13 @@ requires: psycopg2-binary, sqlparse
 
 ---
 
-# Common Persona Engineering Mistakes in nanobot
+## Known Pitfalls
 
 * ❌ **Deploying a Local `soul.json` File:** As noted, this is a completely invalid pattern. The framework ignores metadata schemas inside the workspace directory. Route all operational parameters through `~/.nanobot/config.json`.
 * ❌ **Mixing Personality with Operational Workflow:** Placing file editing or tool constraints inside `SOUL.md`. If you tell the bot to "Always use bash tools" in `SOUL.md`, you risk confusing its core reasoning identity during non-technical interactions.
 * ❌ **Failing to Track Token Budgets:** Letting `AGENTS.md` slide past 1,500 tokens. This causes the model to suffer from "lost-in-the-middle" vulnerabilities, completely ignoring tool execution constraints listed at the bottom of your file. Keep these documents sharp, declarative, and highly compressed.
+
+## Related Documents
+
+- [Agents Best Practices](agents-best-practices.md) — conventions for AGENTS.md structuring and agent behavior
+- [OpenCode Agents](opencode-agents.md) — agent configuration for the OpenCode CLI tool

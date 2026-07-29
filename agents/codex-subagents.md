@@ -1,10 +1,24 @@
-# Subagents - https://learn.chatgpt.com/codex/agent-configuration/subagents
+---
+title: Codex Subagents
+description: Reference for subagent workflows in OpenAI Codex, including custom agents, model selection, sandbox controls, and batch processing patterns.
+status: active
+tags: [codex, subagents, agents, configuration, openai]
+last_verified: 2026-07-29
+layer: warm
+applies_to: OpenAI Codex
+---
+
+# Codex Subagents
+
+> Subagent workflows in OpenAI Codex.
+
+[Official documentation](https://learn.chatgpt.com/codex/agent-configuration/subagents)
 
 Codex can run subagent workflows by spawning specialized agents in parallel and then collecting their results in one response. This can be particularly helpful for complex tasks that are highly parallel, such as codebase exploration or implementing a multi-step feature plan.
 
-With subagent workflows, you can also define your own custom agents with different model configurations and instructions depending on the task.
+## Overview
 
-For the concepts and tradeoffs behind subagent workflows, including context pollution, context rot, and model-selection guidance, see [Subagent concepts](https://developers.openai.com/codex/concepts/subagents).
+With subagent workflows, you can also define your own custom agents with different model configurations and instructions depending on the task. For the concepts and tradeoffs behind subagent workflows, including context pollution, context rot, and model-selection guidance, see [Subagent concepts](https://developers.openai.com/codex/concepts/subagents).
 
 ## Availability
 
@@ -181,7 +195,7 @@ The best custom agents are narrow and opinionated. Give each one clear job, a
 tool surface that matches that job, and instructions that keep it from
 drifting into adjacent work.
 
-#### Example 1: PR review
+#### Example 1: PR review [Copy-Safe]
 
 This pattern splits review across three focused custom agents:
 
@@ -292,7 +306,7 @@ Related runtime settings:
 - `agents.default_subagent_model` and `agents.default_subagent_reasoning_effort` set defaults for spawned agents.
 - `sqlite_home` controls where Codex stores the SQLite-backed state used for agent jobs and their exported results.
 
-#### Example 2: Frontend integration debugging
+#### Example 2: Frontend integration debugging [Copy-Safe]
 
 This pattern is useful for UI regressions, flaky browser flows, or integration bugs that cross application code and the running product.
 
@@ -358,3 +372,10 @@ This setup works well for prompts like:
 ```text
 Investigate why the settings modal fails to save. Have browser_debugger reproduce it, code_mapper trace the responsible code path, and ui_fixer implement the smallest fix once the failure mode is clear.
 ```
+
+## Related Documents
+
+- [Agents Best Practices](agents-best-practices.md) — conventions for AGENTS.md structuring and agent behavior
+- [Claude Code Subagents](claude-code-subagents.md) — subagent workflows in Anthropic Claude Code
+- [Codex Agent Conversion](codex-agent-conversion.md) — migrating existing agent setups to OpenAI Codex
+- [OpenCode Agents](opencode-agents.md) — agent configuration for the OpenCode CLI tool

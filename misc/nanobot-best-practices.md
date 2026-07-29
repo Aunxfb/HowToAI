@@ -1,102 +1,74 @@
-# Nanobot Best Practices for AI Customization
-
-A practical guide for designing, customizing, and operating high-quality nanobot agents using the HKUDS framework.
-
+---
+title: Nanobot Best Practices for AI Customization
+description: Practical guide for designing, customizing, and operating high-quality nanobot agents using the HKUDS framework, covering file-based cognition, memory, skills, and security.
+status: active
+tags: [nanobot, agents, best-practices, customization, hkuds]
+last_verified: 2026-07-29
+layer: warm
+applies_to: nanobot agent framework
 ---
 
-# Architecture Philosophy: File-Based Cognition
+# Nanobot Best Practices for AI Customization
 
-nanobot is an ultra-lightweight personal AI agent framework (~4,000 lines of Python core). It rejects massive, monolithic orchestration engines. Instead, it delegates agent behavior to a **file-first cognitive architecture** in your workspace, while using a central `config.json` strictly for routing APIs, setting up chat channels (Telegram, Discord, Slack, WebUI), and managing tool sandboxing.
+## Overview
+
+Practical guide for designing, customizing, and operating high-quality nanobot agents using the HKUDS framework. Covers the file-first cognitive architecture, system prompt optimization, memory management, skills engineering, and security guardrails.
+
+## Architecture Philosophy: File-Based Cognition
+
+Nanobot is an ultra-lightweight personal AI agent framework (~4,000 lines of Python core). It delegates agent behavior to a **file-first cognitive architecture** in your workspace, using a central `config.json` strictly for routing APIs, chat channels (Telegram, Discord, Slack, WebUI), and tool sandboxing.
 
 The best nanobots are:
 
-* **Narrowly scoped:** Driven by concise, highly declarative markdown files.
-* **Context-disciplined:** Using on-demand skill loading to prevent token bloating.
-* **Operationally isolated:** Utilizing isolated per-session execution tracks so parallel user requests don't overlap.
+- **Narrowly scoped**: driven by concise, highly declarative markdown files.
+- **Context-disciplined**: using on-demand skill loading to prevent token bloat.
+- **Operationally isolated**: utilizing per-session execution tracks so parallel requests do not overlap.
 
----
+## System Prompt Equation
 
-# The System Prompt Equation: Optimizing Workspace Files
-
-At the start of every chat turn, nanobot's engine runs `build_system_prompt()`. This function dynamically stitches together your core workspace markdown files to create the foundation of the agent's context.
-
-Because everything is concatenated, keeping these core files lean is critical to avoid token inflation, high inference costs, and "lost-in-the-middle" instruction drift.
-
-```
-┌──────────────────────────────────────────────────────────┐
-│                   build_system_prompt()                  │
-├───────────┬───────────┬───────────┬──────────────┬───────┤
-│ AGENTS.md │  SOUL.md  │  USER.md  │  MEMORY.md   │ SKILL │
-│ (Rules)   │ (Persona) │ (Profile) │ (Compacted)  │ (Body)│
-└───────────┴───────────┴───────────┴──────────────┴───────┘
-
-```
+At every chat turn, `build_system_prompt()` dynamically stitches together core workspace markdown files to create the agent's context. Keeping these core files lean is critical to avoid token inflation and instruction drift.
 
 ### Workspace File Reference Guide
 
-| Workspace File | Target Size | Functional Role | Optimization Guardrail |
-| --- | --- | --- | --- |
-| **`AGENTS.md`** | **300 – 400 words** | **Active Runtime Manual:** Governs tool execution rules, multi-agent task delegation boundaries, and background loop automation. | Avoid abstract philosophy. Use strict formatting blocks (`# Rules`, `# Tool Usage`) so the model switches cleanly to tool-calling mode. |
-| **`SOUL.md`** | **250 – 450 words** | **Identity & Persona:** Defines character traits, communication style, tone preferences, and core behavioral values. | Do not exceed 600 tokens. Over-conditioning emotional context causes the model to ignore practical workspace instructions. |
-| **`USER.md`** | **150 – 300 words** | **User Profile & Environment:** Explicitly declares your OS, coding environment, specific preferences, and localized context. | Keep up-to-date with your current tech stack. Let the model read this to tailor shell commands and file changes to your host machine. |
-| **`HEARTBEAT.md`** | **200 – 350 words** | **Scheduled Automation:** Templates the cron rules and periodic tasks executed asynchronously by the backend daemon. | Ensure instructions have explicit exit criteria so proactive background tasks don't get stuck in execution loops. |
+| File | Target Size | Role |
+|---|---|---|
+| `AGENTS.md` | 300–400 words | Active runtime manual: tool execution rules, multi-agent delegation, background loops |
+| `SOUL.md` | 250–450 words | Identity and persona: character traits, communication style, behavioral values |
+| `USER.md` | 150–300 words | User profile and environment: OS, coding environment, preferences |
+| `HEARTBEAT.md` | 200–350 words | Scheduled automation: cron rules and periodic tasks |
 
-> **Architectural Best Practice:** Protect the core file layer. Never manually inject fluid facts, temporary project updates, or learned user quirks here. Offload all active conversation summaries to `memory/MEMORY.md` or modularize workflows into the `skills/` directory.
+- **Protect the core file layer**: never inject fluid facts or temporary project updates here. Offload active summaries to `memory/MEMORY.md` or modularize workflows into `skills/`.
 
----
+## Memory Best Practices
 
-# Memory Best Practices: The "Dream" Protocol
+Nanobot splits memory into two pipelines:
 
-nanobot splits its memory architecture into two distinct pipelines: raw history execution and long-term consolidation.
+1. **Raw Logs**: active turn interaction logs stream into `history.jsonl` or `memory/HISTORY.md`, hard-capped (typically last 50 entries up to 32k characters).
+2. **Dream Loop**: background process reads raw log traces, runs pattern analysis, extracts durable insights, and consolidates them into `memory/MEMORY.md`.
 
-## 1. Respect the Multi-Stage Memory Lifecycle
+- **Auto-Compaction**: let the engine handle micro-compaction. Set `memoryWindow` in `config.json` (e.g., 50) and let background coroutines manage token pressure.
 
-* **Stage 1 (Raw Logs):** The active turn interaction logs tool results and text streams directly into `history.jsonl` or `memory/HISTORY.md`. This is hard-capped (typically the last 50 entries up to 32k characters) to protect the context window.
-* **Stage 2 (The Dream Loop):** In the background, the framework triggers its native **Dream** protocol. It reads the raw log traces, runs a pattern analysis, extracts durable insights (e.g., "User changed production cluster to AWS-West"), and appends/consolidates them cleanly into **`memory/MEMORY.md`**.
+## Skills Engineering
 
-## 2. Leverage Auto-Compaction
-
-Let the engine room handle micro-compaction. Do not manually edit `MEMORY.md` during live sessions. Instead, ensure that your `config.json` sets a reasonable `memoryWindow` (e.g., 50) and let the background coroutines systematically handle token pressure reduction.
-
----
-
-# Skills Engineering: Modular Extension over System Bloat
-
-If you want your nanobot to execute specific complex workflows (e.g., stock market analysis, code performance profiling, or multi-exchange tracking as introduced in PR #1219), do not write them into `AGENTS.md`. Use the native **Skill System**.
+Do not write complex workflows into `AGENTS.md`. Use the native Skill System:
 
 ```
 ~/.nanobot/workspace/skills/
   └── stock-analysis/
-      └── SKILL.md      <-- Contains targeted tool descriptions & frontmatter
-
+      └── SKILL.md
 ```
 
-### Best Practices for Designing a `SKILL.md`:
+### Best Practices for SKILL.md
 
-* **Use Clear Frontmatter:** Declare the metadata exactly so the framework's `SkillsLoader` can catalog it efficiently.
-```markdown
----
-name: stock_analyzer
-description: Fetches real-time market data and executes technical indicator formulas.
-always: false
-requires: pandas, httpx
----
+- **Clear Frontmatter**: declare metadata for the `SkillsLoader` to catalog efficiently.
+- **On-Demand Compounding**: set `always: false` for hyper-specific workflows. The full manual is only read into context when the agent triggers the skill.
+- **Idempotent Tools**: guarantee repeated calls are safe. For destructive actions, mandate a dry-run block or use `ask_user` for confirmation.
 
-```
+## Configuration and Platform Fine-Tuning
 
+### Multi-Provider Resiliency
 
-* **On-Demand Compounding:** Set `always: false` for hyper-specific workflows. This allows `build_skills_summary()` to inject a tiny, single-line XML summary into the prompt. The full manual is only read into context when the agent explicitly elects to trigger the skill.
-* **Idempotent Tool Writing:** When writing custom Python skills or wrapping external APIs, guarantee that repeated calls are safe. For high-risk, destructive actions, mandate an explicit dry-run block or use the native `ask_user` tool to pause execution for a manual user confirmation handshake.
-
----
-
-# Configuration & Platform Fine-Tuning
-
-Your core infrastructure routes through `~/.nanobot/config.json`. Optimize this file to maintain structural boundaries across channels.
-
-### 1. Multi-Provider Resiliency
-
-Always design a heterogeneous provider stack. If your main reasoning model suffers from latency spikes or API timeouts, nanobot should fall back gracefully.
+Design a heterogeneous provider stack with fallback:
 
 ```json
 "agents": {
@@ -107,48 +79,26 @@ Always design a heterogeneous provider stack. If your main reasoning model suffe
     "maxToolIterations": 20
   }
 }
-
 ```
 
-*When pointing at reasoning models like DeepSeek-V4 (`deepseek-reasoner`), ensure that your config explicitly supports streamed thinking blocks so the real-time reasoning transcript is isolated from the conversational message payload.*
+### Granular Channel Interface Controls
 
-### 2. Granular Channel Interface Controls
+Fine-tune `channels` settings per platform. Turn progress indicators off for chat platforms to minimize spam while keeping them on for WebUI.
 
-Avoid global communication settings. Fine-tune your `channels` settings directly inside your JSON structure. You can turn progress indicators off for chat platforms to minimize spam, while keeping them completely verbal on your local WebUI.
+## Security and Isolation Guardrails
 
-```json
-"channels": {
-  "telegram": {
-    "enabled": true,
-    "token": "ENV_TELEGRAM_TOKEN",
-    "allowFrom": ["YOUR_USER_ID"],
-    "sendProgress": false,
-    "inline_keyboards": true
-  },
-  "websocket": {
-    "enabled": true,
-    "sendProgress": true,
-    "sendToolHints": true
-  }
-}
+- **Isolate Pathing**: keep `"tools": { "restrictToWorkspace": true }` active in production.
+- **Sandbox the Shell**: never run `nanobot gateway` as root. In multi-user setups, enforce sandboxing with Docker and restricted volume mappings.
+- **Audit Traces**: monitor runtime session logs for overlapping tool calls or race conditions, especially with `HEARTBEAT.md` background loops.
 
-```
+## Anti-Patterns
 
----
+- Monolithic prompt packing — shoving 2,000 lines into `AGENTS.md` instead of using on-demand Skills.
+- Open-ended loop definitions — high `maxToolIterations` without strict stop criteria.
+- Unprotected global inbound channels — enabling Telegram or Discord without populating `allowFrom`.
+- Over-agentification — creating sub-agents for minor linear tasks a single model turn could solve directly.
 
-# Security & Isolation Guardrails
+## Related Documents
 
-Because nanobot has access to direct terminal execution and filesystem pathways, treating security as an operational priority is a necessity.
-
-* **Isolate Pathing:** Keep `"tools": { "restrictToWorkspace": true }` active in production. This walls off the agent loop from reading or editing raw system directories outside your active `~/.nanobot/workspace`.
-* **Sandbox the Shell System:** Never run the `nanobot gateway` process as root. In multi-user setups or public chat channels (Slack/Discord), enforce sandboxing by wrapping local commands natively using isolated container environments or container runtimes (e.g., running nanobot inside Docker with restricted volume mappings).
-* **Audit Traces:** Actively monitor your runtime session logs. Watch for overlapping tool calls or race conditions, particularly when deploying complex background tasks driven by `HEARTBEAT.md` loops.
-
----
-
-# Anti-Patterns to Avoid
-
-* ❌ **Monolithic Prompt Packing:** Shoving 2,000 lines of documentation directly into `AGENTS.md`. (Use on-demand Skills or MCP servers instead).
-* ❌ **Open-Ended Loop Definitions:** Setting a high `maxToolIterations` (e.g., >50) without a strict stop criteria in the markdown instructions, inviting endless recursive self-reflection loops.
-* ❌ **Unprotected Global Inbound Channels:** Enabling Telegram, Discord, or DingTalk bridges without populating the `allowFrom` or `group_allow_from` list—effectively granting random internet users access to execute workspace commands.
-* ❌ **Over-Agentification:** Creating separate sub-agents for minor linear tasks that a single model execution turn could solve directly with standard tools.
+- [Reference Standards](../misc/reference-standards.md) — the conventions this document follows.
+- [OpenCode Best Practices](../misc/opencode-best-practices.md) — comparable practices for OpenCode agents.

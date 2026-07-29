@@ -4,6 +4,7 @@ description: Field guide for migrating agent and skill definitions between OpenC
 status: active
 tags: [agents, skills, porting, opencode, claude-code, codex, migration]
 last_verified: 2026-07-29
+layer: cold
 applies_to: OpenCode, Claude Code, OpenAI Codex
 ---
 

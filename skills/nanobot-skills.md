@@ -1,6 +1,18 @@
+---
+title: Nanobot Skills
+description: Covers nanobot-specific skill features including the SkillsLoader, MCP server pairing, metadata payload format, runtime support matrix, and skill configuration.
+status: active
+tags: [nanobot, skills, skillsloader, mcp, agent-framework]
+last_verified: 2026-07-29
+layer: warm
+applies_to: nanobot, agent skills, SKILL.md
+---
+
 # Nanobot Skills
 
-This guide covers nanobot-specific skill features: the `SkillsLoader`, MCP server pairing, `metadata` payload format, the runtime support matrix, and nanobot-specific skill configuration.
+## Overview
+
+This guide covers nanobot-specific skill features: the SkillsLoader, MCP server pairing, `metadata` payload format, the runtime support matrix, and nanobot-specific skill configuration.
 
 ---
 
@@ -27,6 +39,7 @@ In nanobot, skills are managed as specialized workspace modules rather than bein
 
 **metadata:** An optional nested object that supports `nanobot` or `openclaw` sub-payloads. The `always` and `requires` flags can live here instead of (or alongside) the top-level. This enables compatibility with both nanobot and OpenClaw frameworks from a single `SKILL.md`.
 
+**[Copy-Safe]**
 ```yaml
 ---
 name: skill-name
@@ -55,8 +68,9 @@ Because MCP servers inherently expose raw, atomic functional endpoints (e.g., "e
 
 ### 1. Match the Directory & Frontmatter Configuration
 
-Your `SKILL.md` must be placed correctly, and its frontmatter should acknowledge the tools or runtime requirements. Ensure your `SKILL.md` template looks similar to this:
+Your `SKILL.md` must be placed correctly, and its frontmatter should acknowledge the tools or runtime requirements.
 
+**[Copy-Safe]**
 ```markdown
 ---
 name: database-analytics
@@ -100,6 +114,7 @@ The `always` flag is checked at two levels in the frontmatter: the top-level key
 
 Defines **environmental prerequisites** that must be met before a skill is considered available. This is not skill-to-skill chaining — it checks for CLI tools and environment variables.
 
+**[Copy-Safe]**
 ```yaml
 requires:
   bins:
@@ -158,6 +173,7 @@ When you write instructions within a skill, you should address the agent as **"Y
 
 ### Quick Example: SKILL.md Structure
 
+**[Copy-Safe]**
 ```markdown
 ---
 name: weather-analyst
@@ -175,3 +191,8 @@ requires:
 ```
 
 By sticking to **"You"** or **direct command verbs** ("Search", "Format", "Verify"), you ensure that nanobot executes the workflow seamlessly without any identity confusion.
+
+## Related Documents
+
+- [Skills Best Practices](../skills/skills-best-practices.md) — general guidelines for creating and maintaining AI agent skills
+- [Reference File Standards](../misc/reference-standards.md) — standards for reference documents in this repository
