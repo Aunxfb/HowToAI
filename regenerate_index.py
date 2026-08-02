@@ -71,7 +71,7 @@ def _parse_yaml_simple(text: str) -> dict | None:
 
 
 def parse_frontmatter(filepath: Path) -> dict | None:
-    content = filepath.read_text(encoding="utf-8")
+    content = filepath.read_text(encoding="utf-8-sig")
     match = re.match(r"^---\s*\n(.*?)\n(?:---|\.\.\.)", content, re.DOTALL)
     if not match:
         return None
@@ -89,7 +89,7 @@ LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+\.md)\)")
 
 def parse_related_links(filepath: Path) -> list[tuple[str, str]]:
     """Extract (link_text, resolved_relative_path) from ## Related Documents."""
-    content = filepath.read_text(encoding="utf-8")
+    content = filepath.read_text(encoding="utf-8-sig")
     match = re.search(r"^## Related Documents\s*\n(.*?)(?=\n## |\Z)", content, re.DOTALL | re.MULTILINE)
     if not match:
         return []
@@ -290,7 +290,7 @@ def generate_relationship_tree(
 MARKER = "## Directory Structure"
 
 def update_readme(full_section: str) -> bool:
-    old_text = README_PATH.read_text(encoding="utf-8")
+    old_text = README_PATH.read_text(encoding="utf-8-sig")
     idx = old_text.find(f"\n{MARKER}")
     if idx == -1:
         idx = old_text.find(MARKER)
@@ -300,7 +300,7 @@ def update_readme(full_section: str) -> bool:
     new_text = old_text[:idx] + "\n" + full_section.rstrip("\n") + "\n"
     if new_text == old_text:
         return False
-    README_PATH.write_text(new_text, encoding="utf-8")
+    README_PATH.write_text(new_text, encoding="utf-8", newline="\n")
     return True
 
 
