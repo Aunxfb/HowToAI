@@ -430,6 +430,9 @@ Framework validates transition.
 
 ## Related Documents
 
-- [LLM Budget-Friendly Design Patterns](llm-budget-friendly-design-patterns.md) — detailed patterns and implementation guidance for externalizing memory, file-based state passing, skills design, and more
+- [LLM Budget-Friendly Design Appendix](llm-budget-friendly-design-appendix.md) — practical engineering procedure: state machine first, task decomposition, operation classification, evaluation
+- [LLM Budget-Friendly Reference Architecture](llm-budget-friendly-design-arch.md) — reference architecture: system overview, project structure, runtime loop, context loading, multi-agent communication
 - [LLM Budget-Friendly Design — Operating](llm-budget-friendly-design-operating.md) — operations and governance principles for workflow state separation, recoverability, token budgeting, and reversible actions
+- [LLM Budget-Friendly Design Patterns](llm-budget-friendly-design-patterns.md) — detailed patterns and implementation guidance for externalizing memory, file-based state passing, skills design, and more
+- [LLM Budget-Friendly Design Templates](llm-budget-friendly-design-templates.md) — design guidance and YAML templates for AI framework components
 - [Reference File Standards](reference-standards.md) — the structural standards that apply to all reference files in this repository

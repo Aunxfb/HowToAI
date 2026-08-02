@@ -99,7 +99,7 @@ def parse_related_links(filepath: Path) -> list[tuple[str, str]]:
         resolved = (filepath.parent / path).resolve()
         try:
             rel = resolved.relative_to(REPO_ROOT)
-            links.append((text, str(rel)))
+            links.append((text, str(rel).replace("\\", "/")))
         except ValueError:
             continue
     return links
@@ -147,7 +147,7 @@ def collect_all_entries() -> dict[str, dict]:
             continue
         fm = parse_frontmatter(md_file)
         if fm is not None:
-            entries[str(rel)] = fm
+            entries[str(rel).replace("\\", "/")] = fm
     return entries
 
 
@@ -222,14 +222,12 @@ def generate_relationship_tree(
     for src, tgt, _ in edges:
         src_layer = (entries[src].get("layer") or "warm").strip().lower()
         tgt_layer = (entries[tgt].get("layer") or "warm").strip().lower()
-        if {src_layer, tgt_layer} != {"warm", "cold"}:
-            continue
-        if src_layer == "warm":
+        # Only forward warm→cold links create nesting ("warm overviews branch
+        # into their cold deep-references"). A cold file citing a warm file is
+        # a back-reference (e.g., "follows these standards"), not a branch.
+        if src_layer == "warm" and tgt_layer == "cold":
             children.setdefault(src, set()).add(tgt)
             cold_with_parent.add(tgt)
-        else:
-            children.setdefault(tgt, set()).add(src)
-            cold_with_parent.add(src)
 
     lines = ["## Reference Relationships\n"]
     lines.append(

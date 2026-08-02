@@ -4,7 +4,7 @@ description: Design guidance and YAML templates for AI framework components — 
 status: active
 tags: [llm, design, templates, yaml, state-model, phase-contracts, skills, agents]
 last_verified: 2026-07-29
-layer: warm
+layer: cold
 applies_to: AI framework implementors
 ---
 
