@@ -2,6 +2,8 @@
 
 A curated collection of references, guides, patterns, and best practices for Applied AI — covering agent orchestration, skill authoring, prompt optimization, and security tooling across multiple AI coding platforms (OpenAI Codex, OpenCode, Claude Code, Nanobot).
 
+AI agents: see `AGENTS.md` for the hot → warm → cold loading protocol. This file is the index; read it before fetching any reference.
+
 ## Directory Structure
 
 ### agents/
