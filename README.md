@@ -60,6 +60,8 @@ Cross-cutting topics: platform best practices, security comparisons, LLM design,
 | [llm-budget-friendly-design-patterns.md](misc/llm-budget-friendly-design-patterns.md) | LLM Budget-Friendly Design Patterns | Detailed patterns and implementation guidance for externalizing memory, file-based state passing, context boundary splitting, skills design, and interfaces optimized for AI consumption. |
 | [llm-budget-friendly-design-templates.md](misc/llm-budget-friendly-design-templates.md) | LLM Budget-Friendly Design Templates | Design guidance and YAML templates for AI framework components — state models, phase contracts, skills, agents, prompts, and supporting template examples. |
 | [llm-budget-friendly-design.md](misc/llm-budget-friendly-design.md) | LLM Budget-Friendly Design | Core philosophy and actionable principles for designing efficient, reliable, and scalable AI systems that minimize unnecessary LLM usage. |
+| [mcp-server-best-practices-deep-reference.md](misc/mcp-server-best-practices-deep-reference.md) | MCP Server Best Practices Deep Reference | Evidence base, protocol detail, templates, and evaluation guidance for architects and AI engineers building reliable and secure Model Context Protocol servers. |
+| [mcp-server-best-practices.md](misc/mcp-server-best-practices.md) | MCP Server Best Practices | Practical rules and release checks for designing reliable, efficient, secure, and agent-usable Model Context Protocol servers. |
 | [nanobot-best-practices.md](misc/nanobot-best-practices.md) | Nanobot Best Practices for AI Customization | Practical guide for designing, customizing, and operating high-quality nanobot agents using the HKUDS framework, covering file-based cognition, memory, skills, and security. |
 | [opencode-best-practices.md](misc/opencode-best-practices.md) | OpenCode Best Practices Guide | Optimal formats, structures, and constraints for designing OpenCode configurations, agents, and skills to maximize efficiency and reduce token waste. |
 | [opencode-references.md](misc/opencode-references.md) | OpenCode Official Documentation References | Central index of OpenCode official documentation links for AI agents and developers configuring OpenCode agents, skills, tools, and permissions. |
@@ -110,6 +112,10 @@ Warm overviews branch into their cold deep-references. Cold files that no warm f
     ├── [LLM Budget-Friendly Design — Operating](misc/llm-budget-friendly-design-operating.md) (❄️)
     ├── [LLM Budget-Friendly Design Patterns](misc/llm-budget-friendly-design-patterns.md) (❄️)
     └── [LLM Budget-Friendly Design Templates](misc/llm-budget-friendly-design-templates.md) (❄️)
+├── [MCP Server Best Practices](misc/mcp-server-best-practices.md) (☀️)
+    ├── [LLM Budget-Friendly Design Patterns](misc/llm-budget-friendly-design-patterns.md) (❄️)
+    ├── [MCP Server Best Practices Deep Reference](misc/mcp-server-best-practices-deep-reference.md) (❄️)
+    └── [Skills Best Practices for AI Assistants](skills/skills-best-practices.md) (❄️)
 ├── [Nanobot Best Practices for AI Customization](misc/nanobot-best-practices.md) (☀️)
 ├── [OpenCode Best Practices Guide](misc/opencode-best-practices.md) (🔥)
 ├── [OpenCode Official Documentation References](misc/opencode-references.md) (🔥)

@@ -6,6 +6,11 @@ Project-level rules for AI agents working in this repository. Auto-loaded at ses
 
 This repository is a knowledge base of Applied AI reference documents. Files are organized by progressive-disclosure layers so agents can load only what a task needs. Load lazily; never dump the whole repo into context.
 
+## Adding New (External) References
+When adding new references or best practice guide not drafted within this repo, check the `toadd` folder, then also reference the `reference-standards.md` and `reference-template.md` to make sure the newly added references are comforming to the repo convention. Evaluate if the reference file itselfcan be split for more effective guidance and make recommendations.
+
+After all candidates are added, run the regenerate_index.py script to udpate the index under README.md.
+
 ## Loading Protocol
 
 1. **This file** is already in context. Treat it as the entry point.

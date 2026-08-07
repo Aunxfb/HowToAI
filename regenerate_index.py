@@ -24,6 +24,7 @@ REPO_ROOT = Path(__file__).resolve().parent
 README_PATH = REPO_ROOT / "README.md"
 
 EXCLUDED_FILES = {README_PATH.name, "reference-template.md"}
+EXCLUDED_DIRECTORIES = {"scripts", "venv", ".venv"}
 
 SECTION_DESCRIPTIONS = {
     "agents": (
@@ -118,7 +119,7 @@ def collect_files() -> dict[str, list[tuple[str, dict]]]:
         filename = parts[-1]
         if filename in EXCLUDED_FILES:
             continue
-        if directory.startswith(".") or directory == "scripts":
+        if directory.startswith(".") or directory in EXCLUDED_DIRECTORIES:
             continue
         if not (REPO_ROOT / directory).is_dir():
             continue
@@ -141,7 +142,7 @@ def collect_all_entries() -> dict[str, dict]:
         if filename in EXCLUDED_FILES:
             continue
         directory = parts[0]
-        if directory.startswith(".") or directory == "scripts":
+        if directory.startswith(".") or directory in EXCLUDED_DIRECTORIES:
             continue
         if not (REPO_ROOT / directory).is_dir():
             continue
