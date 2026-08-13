@@ -24,7 +24,7 @@ REPO_ROOT = Path(__file__).resolve().parent
 README_PATH = REPO_ROOT / "README.md"
 
 EXCLUDED_FILES = {README_PATH.name, "reference-template.md"}
-EXCLUDED_DIRECTORIES = {"scripts", "venv", ".venv"}
+EXCLUDED_DIRECTORIES = {"scripts", "venv", ".venv", "ToDo"}
 
 SECTION_DESCRIPTIONS = {
     "agents": (
@@ -202,8 +202,9 @@ def generate_table(directory: str, files: list[tuple[str, dict]]) -> str:
 def build_directory_section(groups: dict[str, list[tuple[str, dict]]]) -> str:
     lines = [
         "## Directory Structure\n",
-        "Layer column shows loading intent: 🔥 hot (< 100 lines), ☀️ warm "
-        "(100-500), ❄️ cold (500+). See `AGENTS.md` for the loading protocol.\n",
+        "Layer column shows loading intent: 🔥 always in context, ☀️ "
+        "task-loaded, ❄️ fetched via links. Sizes are guidance, not limits. "
+        "See `AGENTS.md` for the loading protocol.\n",
     ]
     for section_name in SECTION_ORDER:
         files = groups.get(section_name, [])

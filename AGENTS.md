@@ -21,9 +21,11 @@ When executing a plan: update the plan's handoff notes at every state change (se
 
 1. **This file** is already in context. Treat it as the entry point.
 2. **Read `README.md`** — the index and router. Use its directory tables to map a task to files, and its relationship tree to see which cold files (❄️) belong to which warm overview (☀️).
-3. **Hot files (🔥)** — sized under 100 lines for always-in-context use. Load them whenever working in their domain.
-4. **Warm files (☀️)** — task-specific guides (100-500 lines). Load only the ones whose scope matches the current task.
-5. **Cold files (❄️)** — deep references (500+ lines): evidence bases, deep dives, templates, appendices. Fetch via their links only when the task actually requires the depth.
+3. **Hot files (🔥)** — always in context (typically under 100 lines). Load them whenever working in their domain.
+4. **Warm files (☀️)** — task-specific guides (typically 100-500 lines). Load only the ones whose scope matches the current task.
+5. **Cold files (❄️)** — deep references fetched via links: evidence bases, deep dives, templates, appendices (often 500+ lines). Fetch via their links only when the task actually requires the depth.
+
+Layer is classified by **loading intent**, not line count; sizes are token-budget guidance, not enforcement.
 6. **Follow `## Related Documents` sections** for deeper context within a topic.
 
 Layer defaults (when a file has no `layer` field): root files default to `hot`, subdirectory files default to `warm`. See `documentation/reference-standards.md` for the full layer definitions and quality rules.

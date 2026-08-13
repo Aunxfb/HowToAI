@@ -30,13 +30,13 @@ AI coding agents rely on predictable structure to extract context efficiently. H
 
 Reference files operate in three layers:
 
-| Layer | Loading | Purpose | Size Target |
+| Layer | Loading | Purpose | Size Guidance |
 |---|---|---|---|
-| **Hot** | Always in context | Router, index, critical constraints | < 100 lines |
-| **Warm** | Loaded by proximity or task relevance | Task-specific guides, patterns | 100-500 lines |
-| **Cold** | Explicitly fetched via link | Deep reference, appendices, research | 500+ lines |
+| **Hot** | Always in context | Router, index, critical constraints | Keep small — typically < 100 lines |
+| **Warm** | Loaded by proximity or task relevance | Task-specific guides, patterns | Typically 100-500 lines |
+| **Cold** | Explicitly fetched via link | Deep reference, appendices, research | Often 500+ lines |
 
-Root-level files should be hot. Subdirectory files should be warm. Deep dives belong in cold files linked from warm ones.
+Classify by **loading intent**; line counts are token-budget guidance, not enforcement. Root-level files should be hot. Subdirectory files should be warm. Deep dives belong in cold files linked from warm ones.
 
 ### 2. Predictable Structure
 
@@ -85,7 +85,7 @@ applies_to: <platform, component, or concept this covers>
 | `status` | Yes | One of: `active`, `draft`, `deprecated`, `archived`. |
 | `tags` | Yes | Array of lowercase keywords. At least 2, at most 8. |
 | `last_verified` | Yes | Date the content was last confirmed accurate. |
-| `layer` | No | One of: `hot`, `warm`, `cold`. Declares loading intent. Default inferred from directory (root = hot, subdirectory = warm). When set, line count **MUST** match the size target for that layer. |
+| `layer` | No | One of: `hot`, `warm`, `cold`. Declares loading intent. Default inferred from directory (root = hot, subdirectory = warm). When set, size targets are guidance — classify by loading intent, not line count. |
 | `applies_to` | No | Comma-separated list of platforms, tools, or concepts the document covers. |
 
 ### Naming Conventions
@@ -250,7 +250,7 @@ For every file:
 - [ ] Tags array has 2-8 lowercase keywords
 - [ ] `last_verified` is a valid date
 - [ ] `layer` is one of `hot`, `warm`, `cold` (or absent to use directory default)
-- [ ] File length matches its layer (hot < 100, warm 100-500, cold 500+), or layer is absent and length matches the directory default
+- [ ] File length is sensible for its loading intent (hot stays small); line counts are guidance, not limits
 - [ ] All section headings are from the standard set or justified exceptions
 - [ ] No HTML tables where markdown tables work
 - [ ] No JSX-style components

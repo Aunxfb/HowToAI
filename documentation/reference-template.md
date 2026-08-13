@@ -4,7 +4,7 @@ description: <One or two sentences. What this covers and who it is for. Max 280 
 status: <active | draft | deprecated | archived>
 tags: [<keyword1>, <keyword2>, <keyword3>]
 last_verified: <YYYY-MM-DD>
-layer: <hot | warm | cold>  # must match file length: hot<100, warm 100-500, cold 500+
+layer: <hot | warm | cold>  # classify by loading intent; sizes are guidance, not limits
 applies_to: <optional: platform, component, or concept>
 ---
 
