@@ -98,16 +98,16 @@ Cross-cutting topics not covered by the other sections.
 | [ai-friendly-planning.md](misc/ai-friendly-planning.md) | ☀️ | AI-Friendly Plan Authoring and Execution | Standards for drafting implementation plans that AI agents can execute autonomously and incrementally, and the rules agents must follow when executing them. Backed by published research and... |
 
 ## Reference Relationships
-Warm overviews branch into their cold deep-references. Cold files that no warm file references appear standalone.
+Warm overviews branch into their companions — deep references and related guides — regardless of layer. Files that no overview references appear standalone.
 ### agents/
 ```
 ├── [Best Practices for AGENTS.md Files](agents/agents-best-practices.md) (☀️)
 ├── [Claude Code Subagent Examples](agents/claude-code-subagents-examples.md) (☀️)
-    └── [Claude Code Subagent Configuration](agents/claude-code-subagents-configure.md) (❄️)
+│   └── [Claude Code Subagent Configuration](agents/claude-code-subagents-configure.md) (❄️)
 ├── [Claude Code Subagents](agents/claude-code-subagents.md) (☀️)
-    └── [Claude Code Subagent Configuration](agents/claude-code-subagents-configure.md) (❄️)
+│   └── [Claude Code Subagent Configuration](agents/claude-code-subagents-configure.md) (❄️)
 ├── [Codex Agent Conversion](agents/codex-agent-conversion.md) (☀️)
-    └── [Porting Agents and Skills Between Harnesses](agents/opencode-claude-codex-porting.md) (❄️)
+│   └── [Porting Agents and Skills Between Harnesses](agents/opencode-claude-codex-porting.md) (❄️)
 ├── [Codex Subagents](agents/codex-subagents.md) (☀️)
 ├── [Nanobot Persona Engineering Guide](agents/nanobot-personas-guide.md) (☀️)
 └── [Agents](agents/opencode-agents.md) (☀️)
@@ -138,19 +138,19 @@ Warm overviews branch into their cold deep-references. Cold files that no warm f
 ### security/
 ```
 ├── [AI vs Traditional DAST Scanner Vulnerability Delegation](security/ai-vs-dast-comparison.md) (☀️)
-    ├── [AI vs DAST Comparison: Vulnerability Deep Dives](security/ai-vs-dast-comparison-deep-dives.md) (❄️)
-    └── [AI vs DAST Comparison: Evidence Base and References](security/ai-vs-dast-comparison-evidence.md) (❄️)
-├── [AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence](security/ai-vs-sast-comparison-evidence.md) (☀️)
+│   ├── [AI vs DAST Comparison: Vulnerability Deep Dives](security/ai-vs-dast-comparison-deep-dives.md) (❄️)
+│   └── [AI vs DAST Comparison: Evidence Base and References](security/ai-vs-dast-comparison-evidence.md) (❄️)
 └── [AI vs SAST/SCA/Secret Scanning Delegation Model for Secure Code Review](security/ai-vs-sast-comparison.md) (☀️)
+    └── [AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence](security/ai-vs-sast-comparison-evidence.md) (☀️)
 ```
 ### design/
 ```
-├── [LLM Budget-Friendly Design Appendix](design/llm-budget-friendly-design-appendix.md) (☀️)
-├── [LLM Budget-Friendly Reference Architecture](design/llm-budget-friendly-design-arch.md) (☀️)
-├── [LLM Budget-Friendly Design — Operating](design/llm-budget-friendly-design-operating.md) (☀️)
-├── [LLM Budget-Friendly Design Patterns](design/llm-budget-friendly-design-patterns.md) (☀️)
-├── [LLM Budget-Friendly Design Templates](design/llm-budget-friendly-design-templates.md) (☀️)
 └── [LLM Budget-Friendly Design](design/llm-budget-friendly-design.md) (☀️)
+    ├── [LLM Budget-Friendly Design Appendix](design/llm-budget-friendly-design-appendix.md) (☀️)
+    ├── [LLM Budget-Friendly Reference Architecture](design/llm-budget-friendly-design-arch.md) (☀️)
+    ├── [LLM Budget-Friendly Design — Operating](design/llm-budget-friendly-design-operating.md) (☀️)
+    ├── [LLM Budget-Friendly Design Patterns](design/llm-budget-friendly-design-patterns.md) (☀️)
+    └── [LLM Budget-Friendly Design Templates](design/llm-budget-friendly-design-templates.md) (☀️)
 ```
 ### misc/
 ```

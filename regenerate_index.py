@@ -242,71 +242,82 @@ def generate_relationship_tree(
     edges: list[tuple[str, str, str]],
     groups: dict[str, list[tuple[str, dict]]],
 ) -> str:
-    """Build warm→cold children map from edges."""
+    """Build overview→companion children map from related-document links.
+
+    Any file may nest under a warm overview regardless of its own layer.
+    Warm↔warm companion links (which are mutual) are disambiguated by
+    outgoing-link count, then by filename prefix (an overview name is a
+    prefix of its companions' names). Cold→warm links are back-references,
+    not branches.
+    """
+    def layer_of(rel: str) -> str:
+        return (entries[rel].get("layer") or "warm").strip().lower()
+
+    out_degree: dict[str, int] = {}
+    for src, tgt, _ in edges:
+        if layer_of(src) == "warm":
+            out_degree[src] = out_degree.get(src, 0) + 1
+
     children: dict[str, list[str]] = {}
-    cold_with_parent: set[str] = set()
+    nested: set[str] = set()
 
     for src, tgt, _ in edges:
-        src_layer = (entries[src].get("layer") or "warm").strip().lower()
-        tgt_layer = (entries[tgt].get("layer") or "warm").strip().lower()
-        # Only forward warm→cold links create nesting ("warm overviews branch
-        # into their cold deep-references"). A cold file citing a warm file is
-        # a back-reference (e.g., "follows these standards"), not a branch.
-        if src_layer == "warm" and tgt_layer == "cold":
+        if layer_of(src) != "warm":
+            continue  # only warm overviews branch
+        tgt_layer = layer_of(tgt)
+        nest = False
+        if tgt_layer == "cold":
+            nest = True
+        elif tgt_layer in ("warm", "hot"):
+            src_stem = Path(src).stem
+            tgt_stem = Path(tgt).stem
+            if out_degree.get(src, 0) > out_degree.get(tgt, 0):
+                nest = True
+            elif (
+                out_degree.get(src, 0) == out_degree.get(tgt, 0)
+                and tgt_stem != src_stem
+                and tgt_stem.startswith(src_stem)
+            ):
+                nest = True
+        if nest:
             children.setdefault(src, set()).add(tgt)
-            cold_with_parent.add(tgt)
+            nested.add(tgt)
+
+    def render_entries(rels: list[str], indent: str) -> list[str]:
+        lines: list[str] = []
+        for i, rel in enumerate(sorted(rels)):
+            is_last = (i == len(rels) - 1)
+            branch = "└── " if is_last else "├── "
+            title = (entries[rel].get("title") or Path(rel).stem).strip()
+            display = tree_item(title, layer_of(rel), rel)
+            lines.append(f"{indent}{branch}{display}\n")
+            kids = sorted(children.get(rel, []))
+            if kids:
+                kid_indent = indent + ("    " if is_last else "│   ")
+                lines.extend(render_entries(kids, kid_indent))
+        return lines
 
     lines = ["## Reference Relationships\n"]
     lines.append(
-        "Warm overviews branch into their cold deep-references. "
-        "Cold files that no warm file references appear standalone.\n"
+        "Warm overviews branch into their companions — deep references and "
+        "related guides — regardless of layer. Files that no overview "
+        "references appear standalone.\n"
     )
 
     for section_name in SECTION_ORDER:
         section_files = groups.get(section_name, [])
         section_files.sort(key=lambda x: x[0].lower())
 
-        # Classify each file's role in this section
-        top_level: list[tuple[str, dict, str, list[str]]] = []  # (rel, fm, kind, kids)
-        for filename, fm in section_files:
-            rel = f"{section_name}/{filename}"
-            layer = (fm.get("layer") or "warm").strip().lower()
-
-            if layer == "warm" and rel in children and children[rel]:
-                top_level.append((rel, fm, "parent", sorted(children[rel])))
-            elif layer == "warm" and rel in children and not children[rel]:
-                top_level.append((rel, fm, "leaf", []))
-            elif layer == "warm":
-                top_level.append((rel, fm, "leaf", []))
-            elif layer == "cold" and rel not in cold_with_parent:
-                top_level.append((rel, fm, "orphan", []))
-            elif layer == "hot":
-                top_level.append((rel, fm, "leaf", []))
-            # cold with parent → shown as child, not top-level
-
+        top_level = [
+            f"{section_name}/{filename}" for filename, _ in section_files
+            if f"{section_name}/{filename}" not in nested
+        ]
         if not top_level:
             continue
 
         lines.append(f"### {section_name}/\n")
         lines.append("```\n")
-
-        for i, (rel, fm, kind, kids) in enumerate(top_level):
-            is_last = (i == len(top_level) - 1)
-            branch = "└── " if is_last else "├── "
-            layer = (fm.get("layer") or "warm").strip().lower()
-            title = (fm.get("title") or Path(rel).stem).strip()
-            title_display = tree_item(title, layer, rel)
-            lines.append(f"{branch}{title_display}\n")
-
-            if kind == "parent":
-                for j, kid_rel in enumerate(kids):
-                    kid_is_last = (j == len(kids) - 1)
-                    kid_branch = "    └── " if kid_is_last else "    ├── "
-                    kid_fm = entries.get(kid_rel, {})
-                    kid_title = (kid_fm.get("title") or Path(kid_rel).stem).strip()
-                    kid_display = tree_item(kid_title, "cold", kid_rel)
-                    lines.append(f"{kid_branch}{kid_display}\n")
-
+        lines.extend(render_entries(top_level, ""))
         lines.append("```\n")
 
     return "".join(lines)
