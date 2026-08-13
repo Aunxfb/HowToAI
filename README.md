@@ -103,6 +103,7 @@ Cross-cutting topics not covered by the other sections.
 Warm overviews branch into their companions — deep references and related guides — regardless of layer. Files that no overview references appear standalone.
 ### agents/
 ```
+├── [Best Practices for AGENTS.md Files](agents/agents-best-practices.md) (☀️)
 ├── [Claude Code Subagent Examples](agents/claude-code-subagents-examples.md) (☀️)
 │   └── [Claude Code Subagent Configuration](agents/claude-code-subagents-configure.md) (❄️)
 ├── [Claude Code Subagents](agents/claude-code-subagents.md) (☀️)
@@ -156,7 +157,6 @@ Warm overviews branch into their companions — deep references and related guid
 ### misc/
 ```
 ├── [AI-Effective README Reference](misc/ai-effective-readmes.md) (☀️)
-│   ├── [Best Practices for AGENTS.md Files](agents/agents-best-practices.md) (☀️)
 │   └── [AI-Effective README Reference -- Case Studies](misc/ai-effective-readmes-case-study.md) (❄️)
 └── [AI-Friendly Plan Authoring and Execution](misc/ai-friendly-planning.md) (☀️)
     └── [AI-Friendly Plan Authoring and Execution -- Evidence](misc/ai-friendly-planning-evidence.md) (❄️)

@@ -243,7 +243,6 @@ Run this in a throwaway container/venv, not the working repo. Note that some com
 ## Related Documents
 
 - [AI-Effective README Reference — Case Studies](ai-effective-readmes-case-study.md) — line-by-line dissection of HowToAI's, uv's, and Claude Cookbooks' READMEs, with before/after rewrites.
-- [Best Practices for AGENTS.md Files](../agents/agents-best-practices.md) — the sibling artifact guide; contrasts AGENTS.md vs README.md.
 
 ## References
 
