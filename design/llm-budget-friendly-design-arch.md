@@ -4,7 +4,7 @@ description: Reference architecture for budget-friendly AI frameworks — system
 status: active
 tags: [llm, architecture, reference, runtime, state-machine, agents, workflow]
 last_verified: 2026-08-13
-layer: cold
+layer: warm
 applies_to: AI framework architects and implementors
 ---
 

@@ -173,25 +173,38 @@ def truncate(text: str, max_len: int = 200) -> str:
     text = str(text).strip()
     if len(text) <= max_len:
         return text
-    return text[: max_len - 3].rstrip() + "..."
+    cut = text[: max_len - 3].rstrip()
+    boundary = cut.rfind(" ")
+    if boundary != -1:
+        cut = cut[:boundary].rstrip()
+    return cut + "..."
+
+
+def layer_badge(layer: str) -> str:
+    return {"hot": "🔥", "warm": "☀️", "cold": "❄️"}.get(layer, layer)
 
 
 def generate_table(directory: str, files: list[tuple[str, dict]]) -> str:
     if not files:
         return "_(no files)_\n"
-    header = "| File | Title | Description |"
-    sep = "|------|-------|-------------|"
+    header = "| File | Layer | Title | Description |"
+    sep = "|------|-------|-------|-------------|"
     rows = []
     for filename, fm in files:
         title = (fm.get("title") or "").replace("|", "\\|")
         desc = truncate(fm.get("description") or "").replace("|", "\\|")
+        layer = (fm.get("layer") or "warm").strip().lower()
         link = f"[{filename}]({directory}/{filename})"
-        rows.append(f"| {link} | {title} | {desc} |")
+        rows.append(f"| {link} | {layer_badge(layer)} | {title} | {desc} |")
     return "\n".join([header, sep] + rows) + "\n"
 
 
 def build_directory_section(groups: dict[str, list[tuple[str, dict]]]) -> str:
-    lines = ["## Directory Structure\n"]
+    lines = [
+        "## Directory Structure\n",
+        "Layer column shows loading intent: 🔥 hot (< 100 lines), ☀️ warm "
+        "(100-500), ❄️ cold (500+). See `AGENTS.md` for the loading protocol.\n",
+    ]
     for section_name in SECTION_ORDER:
         files = groups.get(section_name, [])
         files.sort(key=lambda x: x[0].lower())
@@ -218,7 +231,7 @@ def build_relationships(entries: dict[str, dict]) -> list[tuple[str, str, str]]:
 
 
 def tree_item(title: str, layer: str, link: str = "") -> str:
-    badge = {"hot": "🔥", "warm": "☀️", "cold": "❄️"}.get(layer, layer)
+    badge = layer_badge(layer)
     if link:
         return f"[{title}]({link}) ({badge})"
     return f"{title} ({badge})"
