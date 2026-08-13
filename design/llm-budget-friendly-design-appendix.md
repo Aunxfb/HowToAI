@@ -4,7 +4,7 @@ description: Practical engineering procedure for designing AI frameworks — sta
 status: active
 tags: [llm, design, procedure, state-machine, task-decomposition, evaluation]
 last_verified: 2026-08-13
-layer: cold
+layer: warm
 applies_to: AI framework designers and architects
 ---
 

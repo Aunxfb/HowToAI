@@ -4,7 +4,7 @@ description: Operations and governance principles for workflow state separation,
 status: active
 tags: [llm, design, operations, governance, workflows, recoverability]
 last_verified: 2026-08-13
-layer: cold
+layer: warm
 applies_to: AI system operations, workflow governance, production AI pipelines, risk management
 ---
 

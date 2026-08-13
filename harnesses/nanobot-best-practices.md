@@ -4,7 +4,7 @@ description: Practical guide for designing, customizing, and operating high-qual
 status: active
 tags: [nanobot, agents, best-practices, customization, hkuds]
 last_verified: 2026-08-13
-layer: warm
+layer: hot
 applies_to: nanobot agent framework
 ---
 

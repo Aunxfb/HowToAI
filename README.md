@@ -51,7 +51,7 @@ Platform-specific best practices, workspace configuration, and official document
 | File | Layer | Title | Description |
 |------|-------|-------|-------------|
 | [codex-workspace-best-practices.md](harnesses/codex-workspace-best-practices.md) | 🔥 | Codex Workspace Best Practices | Optimization blueprint for configuring OpenAI Codex workspace personas, execution guardrails, file inheritance rules, and AGENTS.md cascade hierarchy. |
-| [nanobot-best-practices.md](harnesses/nanobot-best-practices.md) | ☀️ | Nanobot Best Practices for AI Customization | Practical guide for designing, customizing, and operating high-quality nanobot agents using the HKUDS framework, covering file-based cognition, memory, skills, and security. |
+| [nanobot-best-practices.md](harnesses/nanobot-best-practices.md) | 🔥 | Nanobot Best Practices for AI Customization | Practical guide for designing, customizing, and operating high-quality nanobot agents using the HKUDS framework, covering file-based cognition, memory, skills, and security. |
 | [opencode-best-practices.md](harnesses/opencode-best-practices.md) | 🔥 | OpenCode Best Practices Guide | Optimal formats, structures, and constraints for designing OpenCode configurations, agents, and skills to maximize efficiency and reduce token waste. |
 | [opencode-references.md](harnesses/opencode-references.md) | 🔥 | OpenCode Official Documentation References | Central index of OpenCode official documentation links for AI agents and developers configuring OpenCode agents, skills, tools, and permissions. |
 
@@ -72,7 +72,7 @@ Security testing and vulnerability assessment references.
 | [ai-vs-dast-comparison-deep-dives.md](security/ai-vs-dast-comparison-deep-dives.md) | ❄️ | AI vs DAST Comparison: Vulnerability Deep Dives | Per-vulnerability-type descriptions for all 30 AI-delegated and DAST-delegated categories, with examples, reasoning, and validation steps. |
 | [ai-vs-dast-comparison-evidence.md](security/ai-vs-dast-comparison-evidence.md) | ❄️ | AI vs DAST Comparison: Evidence Base and References | Complete evidence base supporting the AI vs traditional DAST scanner delegation model, including AI cyber-agent studies, OWASP guidance, DAST scanner documentation, and citation mapping. |
 | [ai-vs-dast-comparison.md](security/ai-vs-dast-comparison.md) | ☀️ | AI vs Traditional DAST Scanner Vulnerability Delegation | Decision framework for delegating vulnerability testing between AI and traditional DAST scanners, with delegation matrix, recommended workflow, and counter-evidence. |
-| [ai-vs-sast-comparison-evidence.md](security/ai-vs-sast-comparison-evidence.md) | ❄️ | AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence | Supporting and contradictory evidence, all 13 references with citations, and claim mapping for the AI vs SAST/SCA/secret scanning delegation model. |
+| [ai-vs-sast-comparison-evidence.md](security/ai-vs-sast-comparison-evidence.md) | ☀️ | AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence | Supporting and contradictory evidence, all 13 references with citations, and claim mapping for the AI vs SAST/SCA/secret scanning delegation model. |
 | [ai-vs-sast-comparison.md](security/ai-vs-sast-comparison.md) | ☀️ | AI vs SAST/SCA/Secret Scanning Delegation Model for Secure Code Review | Defines when to delegate security review tasks to AI-assisted code review, SAST, SCA, secret scanners, or humans, with decision matrices and operating principles. |
 
 ### design/
@@ -81,11 +81,11 @@ Design and architecture guidance for AI systems.
 
 | File | Layer | Title | Description |
 |------|-------|-------|-------------|
-| [llm-budget-friendly-design-appendix.md](design/llm-budget-friendly-design-appendix.md) | ❄️ | LLM Budget-Friendly Design Appendix | Practical engineering procedure for designing AI frameworks — state machine first, task decomposition, operation classification, LLM eligibility, evaluation, and avoiding overengineering. |
+| [llm-budget-friendly-design-appendix.md](design/llm-budget-friendly-design-appendix.md) | ☀️ | LLM Budget-Friendly Design Appendix | Practical engineering procedure for designing AI frameworks — state machine first, task decomposition, operation classification, LLM eligibility, evaluation, and avoiding overengineering. |
 | [llm-budget-friendly-design-arch.md](design/llm-budget-friendly-design-arch.md) | ☀️ | LLM Budget-Friendly Reference Architecture | Reference architecture for budget-friendly AI frameworks — system overview, project structure, runtime loop, context loading, multi-agent communication, failure handling, and model replacement. |
-| [llm-budget-friendly-design-operating.md](design/llm-budget-friendly-design-operating.md) | ❄️ | LLM Budget-Friendly Design — Operating | Operations and governance principles for workflow state separation, recoverability, token budgeting, framework complexity, and preferring reversible AI actions. |
-| [llm-budget-friendly-design-patterns.md](design/llm-budget-friendly-design-patterns.md) | ❄️ | LLM Budget-Friendly Design Patterns | Detailed patterns and implementation guidance for externalizing memory, file-based state passing, context boundary splitting, skills design, and interfaces optimized for AI consumption. |
-| [llm-budget-friendly-design-templates.md](design/llm-budget-friendly-design-templates.md) | ❄️ | LLM Budget-Friendly Design Templates | Design guidance and YAML templates for AI framework components — state models, phase contracts, skills, agents, prompts, and supporting template examples. |
+| [llm-budget-friendly-design-operating.md](design/llm-budget-friendly-design-operating.md) | ☀️ | LLM Budget-Friendly Design — Operating | Operations and governance principles for workflow state separation, recoverability, token budgeting, framework complexity, and preferring reversible AI actions. |
+| [llm-budget-friendly-design-patterns.md](design/llm-budget-friendly-design-patterns.md) | ☀️ | LLM Budget-Friendly Design Patterns | Detailed patterns and implementation guidance for externalizing memory, file-based state passing, context boundary splitting, skills design, and interfaces optimized for AI consumption. |
+| [llm-budget-friendly-design-templates.md](design/llm-budget-friendly-design-templates.md) | ☀️ | LLM Budget-Friendly Design Templates | Design guidance and YAML templates for AI framework components — state models, phase contracts, skills, agents, prompts, and supporting template examples. |
 | [llm-budget-friendly-design.md](design/llm-budget-friendly-design.md) | ☀️ | LLM Budget-Friendly Design | Core philosophy and actionable principles for designing efficient, reliable, and scalable AI systems that minimize unnecessary LLM usage. |
 
 ### misc/
@@ -127,7 +127,7 @@ Warm overviews branch into their cold deep-references. Cold files that no warm f
 ### harnesses/
 ```
 ├── [Codex Workspace Best Practices](harnesses/codex-workspace-best-practices.md) (🔥)
-├── [Nanobot Best Practices for AI Customization](harnesses/nanobot-best-practices.md) (☀️)
+├── [Nanobot Best Practices for AI Customization](harnesses/nanobot-best-practices.md) (🔥)
 ├── [OpenCode Best Practices Guide](harnesses/opencode-best-practices.md) (🔥)
 └── [OpenCode Official Documentation References](harnesses/opencode-references.md) (🔥)
 ```
@@ -140,17 +140,17 @@ Warm overviews branch into their cold deep-references. Cold files that no warm f
 ├── [AI vs Traditional DAST Scanner Vulnerability Delegation](security/ai-vs-dast-comparison.md) (☀️)
     ├── [AI vs DAST Comparison: Vulnerability Deep Dives](security/ai-vs-dast-comparison-deep-dives.md) (❄️)
     └── [AI vs DAST Comparison: Evidence Base and References](security/ai-vs-dast-comparison-evidence.md) (❄️)
+├── [AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence](security/ai-vs-sast-comparison-evidence.md) (☀️)
 └── [AI vs SAST/SCA/Secret Scanning Delegation Model for Secure Code Review](security/ai-vs-sast-comparison.md) (☀️)
-    └── [AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence](security/ai-vs-sast-comparison-evidence.md) (❄️)
 ```
 ### design/
 ```
+├── [LLM Budget-Friendly Design Appendix](design/llm-budget-friendly-design-appendix.md) (☀️)
 ├── [LLM Budget-Friendly Reference Architecture](design/llm-budget-friendly-design-arch.md) (☀️)
+├── [LLM Budget-Friendly Design — Operating](design/llm-budget-friendly-design-operating.md) (☀️)
+├── [LLM Budget-Friendly Design Patterns](design/llm-budget-friendly-design-patterns.md) (☀️)
+├── [LLM Budget-Friendly Design Templates](design/llm-budget-friendly-design-templates.md) (☀️)
 └── [LLM Budget-Friendly Design](design/llm-budget-friendly-design.md) (☀️)
-    ├── [LLM Budget-Friendly Design Appendix](design/llm-budget-friendly-design-appendix.md) (❄️)
-    ├── [LLM Budget-Friendly Design — Operating](design/llm-budget-friendly-design-operating.md) (❄️)
-    ├── [LLM Budget-Friendly Design Patterns](design/llm-budget-friendly-design-patterns.md) (❄️)
-    └── [LLM Budget-Friendly Design Templates](design/llm-budget-friendly-design-templates.md) (❄️)
 ```
 ### misc/
 ```

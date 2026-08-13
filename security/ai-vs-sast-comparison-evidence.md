@@ -4,7 +4,7 @@ description: Supporting and contradictory evidence, all 13 references with citat
 status: active
 tags: [ai, sast, sca, evidence, references, security, code-review]
 last_verified: 2026-08-13
-layer: cold
+layer: warm
 applies_to: secure code review delegation decisions
 ---
 

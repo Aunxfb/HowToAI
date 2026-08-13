@@ -4,7 +4,7 @@ description: Detailed patterns and implementation guidance for externalizing mem
 status: active
 tags: [llm, design, patterns, implementation, skills, interfaces]
 last_verified: 2026-08-13
-layer: cold
+layer: warm
 applies_to: AI system design, LLM-based architectures, agent skill interfaces, memory management
 ---
 
