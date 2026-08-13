@@ -11,6 +11,12 @@ When adding new references or best practice guide not drafted within this repo, 
 
 After all candidates are added, run the regenerate_index.py script to udpate the index under README.md.
 
+## New Reference Ideas and Planning
+
+Any new reference file ideas or planning for this repository goes into the `ToDo/` folder as a plan before drafting the actual reference file. Follow `misc/ai-friendly-planning.md` when writing plans so they are executable by AI agents. Keep ideas and plans in `ToDo/`; the reference files themselves live in their topical directory.
+
+When executing a plan: update the plan's handoff notes at every state change (see `misc/ai-friendly-planning.md` execution rules). Once a plan is fully implemented, remove its plan file from `ToDo/`.
+
 ## Loading Protocol
 
 1. **This file** is already in context. Treat it as the entry point.
