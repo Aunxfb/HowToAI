@@ -14,7 +14,7 @@ Agent-level configuration, subagents, and cross-platform porting.
 
 | File | Layer | Title | Description |
 |------|-------|-------|-------------|
-| [agents-best-practices.md](agents/agents-best-practices.md) | ☀️ | Best Practices for AGENTS.md Files | Reference guide for designing high-performance AGENTS.md files that guide AI coding agents with progressive disclosure, optimal sizing, and production-ready templates. For developers and teams... |
+| [agents-best-practices.md](agents/agents-best-practices.md) | ☀️ | Best Practices for AGENTS.md Files | Reference guide for designing high-performance AGENTS.md files that guide AI coding agents with progressive disclosure, optimal sizing, and production-ready templates. For developers and teams using AI coding tools. |
 | [claude-code-subagents-configure.md](agents/claude-code-subagents-configure.md) | ❄️ | Claude Code Subagent Configuration | Complete reference for configuring Claude Code subagents — scope, file format, frontmatter fields, models, capabilities, permissions, and hooks. |
 | [claude-code-subagents-examples.md](agents/claude-code-subagents-examples.md) | ☀️ | Claude Code Subagent Examples | Ready-to-use subagent configurations for Claude Code — code reviewer, debugger, data scientist, and database query validator with hooks. |
 | [claude-code-subagents.md](agents/claude-code-subagents.md) | ☀️ | Claude Code Subagents | Overview of Claude Code subagent system — built-in agents, quickstart, usage patterns, workflows, and forking. |
@@ -95,7 +95,7 @@ Cross-cutting topics not covered by the other sections.
 | File | Layer | Title | Description |
 |------|-------|-------|-------------|
 | [ai-friendly-planning-evidence.md](misc/ai-friendly-planning-evidence.md) | ❄️ | AI-Friendly Plan Authoring and Execution -- Evidence | Claim-by-claim verification of the seven authoring properties and five execution rules, supporting and contradictory evidence, and all 29 references with citation mapping. |
-| [ai-friendly-planning.md](misc/ai-friendly-planning.md) | ☀️ | AI-Friendly Plan Authoring and Execution | Standards for drafting implementation plans that AI agents can execute autonomously and incrementally, and the rules agents must follow when executing them. Backed by published research and... |
+| [ai-friendly-planning.md](misc/ai-friendly-planning.md) | ☀️ | AI-Friendly Plan Authoring and Execution | Standards for drafting implementation plans that AI agents can execute autonomously and incrementally, and the rules agents must follow when executing them. Backed by published research and industry engineering practice. |
 
 ## Reference Relationships
 Warm overviews branch into their companions — deep references and related guides — regardless of layer. Files that no overview references appear standalone.

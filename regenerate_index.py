@@ -167,7 +167,7 @@ def collect_all_entries() -> dict[str, dict]:
 
 # ── table generation ─────────────────────────────────────────────────
 
-def truncate(text: str, max_len: int = 200) -> str:
+def truncate(text: str, max_len: int = 250) -> str:
     if not text:
         return ""
     text = str(text).strip()
