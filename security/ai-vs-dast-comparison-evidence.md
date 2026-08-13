@@ -3,7 +3,7 @@ title: "AI vs DAST Comparison: Evidence Base and References"
 description: "Complete evidence base supporting the AI vs traditional DAST scanner delegation model, including AI cyber-agent studies, OWASP guidance, DAST scanner documentation, and citation mapping."
 status: active
 tags: [security, penetration-testing, dast, ai-testing, vulnerability-assessment, web-security, references, evidence]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: "web application security testing, penetration testing workflow"
 ---
@@ -482,13 +482,6 @@ PortSwigger describes HTTP request smuggling as a technique that interferes with
 
 ---
 
-## Related Documents
-
-- [AI vs DAST Comparison: Main Document](ai-vs-dast-comparison.md) — decision framework, delegation matrix, workflow, and counter-evidence
-- [AI vs DAST Comparison: Deep Dives](ai-vs-dast-comparison-deep-dives.md) — per-vulnerability type descriptions for all 30 AI and DAST-delegated categories
-- [AI vs SAST/SCA Delegation Model](ai-vs-sast-comparison.md) — counterpart for static analysis tool delegation
-- [Reference File Standards](reference-standards.md) — structural standards for all reference files in this repository
-
 ## References
 
 All sources are listed with full URLs in the evidence groups above. Key external repositories:
@@ -503,3 +496,7 @@ All sources are listed with full URLs in the evidence groups above. Key external
 - OWASP ZAP: https://www.zaproxy.org/docs/alerts/
 - PortSwigger Burp Suite: https://portswigger.net/burp/documentation
 - PortSwigger Web Security Academy: https://portswigger.net/web-security
+
+## Related Documents
+
+- [AI vs Traditional DAST Scanner Vulnerability Delegation](ai-vs-dast-comparison.md) — the decision framework this evidence base supports

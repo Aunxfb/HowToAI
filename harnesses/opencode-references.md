@@ -3,7 +3,7 @@ title: OpenCode Official Documentation References
 description: Central index of OpenCode official documentation links for AI agents and developers configuring OpenCode agents, skills, tools, and permissions.
 status: active
 tags: [opencode, documentation, references, index, configuration]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: hot
 applies_to: opencode configuration
 ---
@@ -37,8 +37,3 @@ Central index of OpenCode (by Zen.ai) official documentation. AI agents should u
 ## Security and Governance
 
 - **Permissions Framework**: [https://opencode.ai/docs/permissions/](https://opencode.ai/docs/permissions/) — define granular `allow`/`ask`/`deny` rules in `opencode.json`.
-
-## Related Documents
-
-- [OpenCode Best Practices](../misc/opencode-best-practices.md) — optimal formats and constraints for OpenCode configurations.
-- [Reference Standards](../misc/reference-standards.md) — the conventions this document follows.

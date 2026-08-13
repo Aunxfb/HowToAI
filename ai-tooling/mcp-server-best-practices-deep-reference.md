@@ -3,7 +3,7 @@ title: MCP Server Best Practices Deep Reference
 description: Evidence base, protocol detail, templates, and evaluation guidance for architects and AI engineers building reliable and secure Model Context Protocol servers.
 status: active
 tags: [mcp, servers, tools, security, evaluation, reliability]
-last_verified: 2026-08-07
+last_verified: 2026-08-13
 layer: cold
 applies_to: Model Context Protocol servers and agent-facing tools
 version: 1.0.0
@@ -396,7 +396,6 @@ This control hierarchy is part of the MCP server model. ([S10](#s10))
 - Do not embed secrets or live user data in a list response.
 - Test rendered prompts for injection boundaries and accidental authority escalation.
 - Version materially changed templates or preserve compatibility aliases.
-
 
 ## Workflow-first capability design
 
@@ -3588,14 +3587,6 @@ On every major model or host update, rerun selection, argument, recovery, cost, 
 
 ---
 
-## Related Documents
-
-- [MCP Server Best Practices](mcp-server-best-practices.md) - concise implementation and review guide for routine use.
-- [Nanobot Skills](../skills/nanobot-skills.md) - guidance for pairing agent skills with MCP servers.
-- [Skills Best Practices for AI Assistants](../skills/skills-best-practices.md) - conventions for documenting tool-dependent agent workflows.
-- [LLM Budget-Friendly Design Patterns](llm-budget-friendly-design-patterns.md) - patterns for controlling context cost and externalizing state.
-- [Reference File Standards](reference-standards.md) - repository structure, metadata, and quality requirements.
-
 ## References
 
 All web sources were last reviewed on or before the research cutoff, `2026-08-07`. Versioned MCP pages are preferred over undated examples.
@@ -3778,3 +3769,7 @@ versioned protocol correctness
 ```
 
 Build the interface for the agent's decision process, keep deterministic responsibility in the server, and measure the complete system continuously.
+
+## Related Documents
+
+- [MCP Server Best Practices](mcp-server-best-practices.md) - the practical rules this deep reference supports

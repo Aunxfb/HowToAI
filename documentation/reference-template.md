@@ -90,7 +90,7 @@ some-command --flag
 
 Links to other files in this repository. Use relative paths and descriptive text.
 
-- [Reference Standards](../misc/reference-standards.md) — the conventions this template follows
+- [Reference Standards](../documentation/reference-standards.md) — the conventions this template follows
 - [<Other File>](../<path>/<file>.md) — <1-line description of what it covers>
 
 ## References

@@ -3,7 +3,7 @@ title: LLM Budget-Friendly Design Patterns
 description: Detailed patterns and implementation guidance for externalizing memory, file-based state passing, context boundary splitting, skills design, and interfaces optimized for AI consumption.
 status: active
 tags: [llm, design, patterns, implementation, skills, interfaces]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: AI system design, LLM-based architectures, agent skill interfaces, memory management
 ---
@@ -384,6 +384,4 @@ The architecture stays unchanged. Only the reasoning quality changes.
 
 ## Related Documents
 
-- [LLM Budget-Friendly Design](llm-budget-friendly-design.md) — core philosophy and actionable principles (read this first)
-- [LLM Budget-Friendly Design — Operating](llm-budget-friendly-design-operating.md) — operations and governance principles for workflow state separation, recoverability, token budgeting, and reversible actions
-- [Reference File Standards](reference-standards.md) — the structural standards that apply to all reference files in this repository
+- [LLM Budget-Friendly Design](llm-budget-friendly-design.md) — the core philosophy this document is part of

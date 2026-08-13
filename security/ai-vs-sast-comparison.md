@@ -3,7 +3,7 @@ title: AI vs SAST/SCA/Secret Scanning Delegation Model for Secure Code Review
 description: Defines when to delegate security review tasks to AI-assisted code review, SAST, SCA, secret scanners, or humans, with decision matrices and operating principles.
 status: active
 tags: [ai, sast, sca, secret-scanning, security, code-review, delegation]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: secure code review delegation decisions
 ---
@@ -280,5 +280,3 @@ The strongest practical recommendation is:
 ## Related Documents
 
 - [AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence](ai-vs-sast-comparison-evidence.md) -- supporting and contradictory evidence, all 13 references, and citation mapping
-- [AI vs DAST Comparison](ai-vs-dast-comparison.md) -- decision framework for AI vs DAST scanner delegation
-- [Reference File Standards](reference-standards.md) -- structural conventions used by all reference files

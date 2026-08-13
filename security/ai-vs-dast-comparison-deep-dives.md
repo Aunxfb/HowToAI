@@ -3,7 +3,7 @@ title: "AI vs DAST Comparison: Vulnerability Deep Dives"
 description: "Per-vulnerability-type descriptions for all 30 AI-delegated and DAST-delegated categories, with examples, reasoning, and validation steps."
 status: active
 tags: [security, penetration-testing, dast, ai-testing, vulnerability-assessment, web-security, deep-dive]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: "web application security testing, penetration testing workflow"
 ---
@@ -634,13 +634,10 @@ AI can help determine whether the exposed component is reachable, relevant, expl
 
 ---
 
-## Related Documents
-
-- [AI vs DAST Comparison: Main Document](ai-vs-dast-comparison.md) — decision framework, delegation matrix, workflow, and counter-evidence
-- [AI vs DAST Comparison: Evidence Base](ai-vs-dast-comparison-evidence.md) — full evidence base, citation mapping, and references
-- [AI vs SAST/SCA Delegation Model](ai-vs-sast-comparison.md) — counterpart for static analysis tool delegation
-- [Reference File Standards](reference-standards.md) — structural standards for all reference files in this repository
-
 ## References
 
 External sources supporting the delegation assignments are listed in the [Evidence Base](ai-vs-dast-comparison-evidence.md) file.
+
+## Related Documents
+
+- [AI vs Traditional DAST Scanner Vulnerability Delegation](ai-vs-dast-comparison.md) — the decision framework this deep dive supports

@@ -3,7 +3,7 @@ title: "LLM Budget-Friendly Design \u2014 Operating"
 description: Operations and governance principles for workflow state separation, recoverability, token budgeting, framework complexity, and preferring reversible AI actions.
 status: active
 tags: [llm, design, operations, governance, workflows, recoverability]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: AI system operations, workflow governance, production AI pipelines, risk management
 ---
@@ -193,6 +193,4 @@ Less prompting.    More engineering.
 
 ## Related Documents
 
-- [LLM Budget-Friendly Design](llm-budget-friendly-design.md) — core philosophy and actionable principles (read this first)
-- [LLM Budget-Friendly Design Patterns](llm-budget-friendly-design-patterns.md) — detailed patterns and implementation guidance for externalizing memory, file-based state passing, skills design, and more
-- [Reference File Standards](reference-standards.md) — the structural standards that apply to all reference files in this repository
+- [LLM Budget-Friendly Design](llm-budget-friendly-design.md) — the core philosophy this document is part of

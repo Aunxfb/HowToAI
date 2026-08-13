@@ -3,7 +3,7 @@ title: Codex Workspace Best Practices
 description: Optimization blueprint for configuring OpenAI Codex workspace personas, execution guardrails, file inheritance rules, and AGENTS.md cascade hierarchy.
 status: active
 tags: [codex, workspace, best-practices, agents, configuration]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: hot
 applies_to: openai codex workspace configuration
 ---
@@ -76,8 +76,3 @@ Prevent modification of legacy files with explicit read/write rules:
 ### Prevent Token Bloat With Code Signatures
 
 Include only basic signatures or type outlines instead of pasting entire multi-line implementations.
-
-## Related Documents
-
-- [Reference Standards](../misc/reference-standards.md) — the conventions this document follows.
-- [OpenCode Best Practices](../misc/opencode-best-practices.md) — comparable practices for OpenCode configuration.

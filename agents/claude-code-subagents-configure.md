@@ -3,7 +3,7 @@ title: Claude Code Subagent Configuration
 description: Complete reference for configuring Claude Code subagents — scope, file format, frontmatter fields, models, capabilities, permissions, and hooks.
 status: active
 tags: [claude-code, subagents, configuration, permissions, hooks]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: Claude Code
 ---
@@ -48,7 +48,6 @@ Plugin `agents/` directories are also scanned recursively. Unlike project and us
 
 **CLI-defined subagents** are passed as JSON when launching Claude Code. They exist only for that session and aren't saved to disk, making them useful for quick testing or automation scripts. You can define multiple subagents in a single `--agents` call:
 
-
 ##### macOS, Linux, WSL
     ```bash
     claude --agents '{
@@ -64,7 +63,6 @@ Plugin `agents/` directories are also scanned recursively. Unlike project and us
       }
     }'
     ```
-
 
 ##### Windows PowerShell
     ```powershell
@@ -83,8 +81,6 @@ Plugin `agents/` directories are also scanned recursively. Unlike project and us
     }
     '@
     ```
-
-
 
 The `--agents` flag accepts JSON with the same [frontmatter](#supported-frontmatter-fields) fields as file-based subagents: `description`, `prompt`, `tools`, `disallowedTools`, `model`, `permissionMode`, `mcpServers`, `hooks`, `maxTurns`, `skills`, `initialPrompt`, `memory`, `effort`, `background`, `isolation`, and `color`. Use `prompt` for the system prompt, equivalent to the markdown body in file-based subagents.
 
@@ -512,7 +508,5 @@ See [Hooks](https://code.claude.com/en/hooks) for the complete hook configuratio
 
 ## Related Documents
 
-- [Claude Code Subagents](claude-code-subagents.md) — overview, built-in agents, usage, and workflows
-- [Claude Code Subagent Examples](claude-code-subagents-examples.md) — ready-to-use subagent configurations
-- [Best Practices for AGENTS.md Files](agents-best-practices.md) — architecture, sizing, and production templates
-- [Codex Subagents](codex-subagents.md) — subagent workflows and custom agents in OpenAI Codex
+- [Claude Code Subagents](claude-code-subagents.md) — the overview this configuration reference is part of
+- [Claude Code Subagent Examples](claude-code-subagents-examples.md) — ready-to-use subagent configurations built on this reference

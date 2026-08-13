@@ -3,7 +3,7 @@ title: Nanobot Skills
 description: Covers nanobot-specific skill features including the SkillsLoader, MCP server pairing, metadata payload format, runtime support matrix, and skill configuration.
 status: active
 tags: [nanobot, skills, skillsloader, mcp, agent-framework]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: nanobot, agent skills, SKILL.md
 ---
@@ -195,4 +195,3 @@ By sticking to **"You"** or **direct command verbs** ("Search", "Format", "Verif
 ## Related Documents
 
 - [Skills Best Practices](../skills/skills-best-practices.md) — general guidelines for creating and maintaining AI agent skills
-- [Reference File Standards](../misc/reference-standards.md) — standards for reference documents in this repository

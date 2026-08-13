@@ -3,7 +3,7 @@ title: Codex Agent Conversion
 description: Maps OpenCode agent and subagent configurations to OpenAI Codex-compatible structure, covering primary agents, subagents, permissions, and orchestration patterns.
 status: active
 tags: [opencode, codex, agents, subagents, conversion, migration]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: OpenCode, OpenAI Codex
 ---
@@ -201,6 +201,3 @@ Once your files are placed in the repository, you interact with the system via t
 ## Related Documents
 
 - [Porting Agents and Skills Between Harnesses](opencode-claude-codex-porting.md) — comprehensive cross-platform conversion reference
-- [Best Practices for AGENTS.md Files](agents-best-practices.md) — architecture, sizing, and production templates for AGENTS.md
-- [Codex Subagents](codex-subagents.md) — subagent workflows and custom agents in OpenAI Codex
-- [OpenCode Agents](opencode-agents.md) — configuring and using agents in OpenCode

@@ -3,7 +3,7 @@ title: LLM Budget-Friendly Reference Architecture
 description: Reference architecture for budget-friendly AI frameworks — system overview, project structure, runtime loop, context loading, multi-agent communication, failure handling, and model replacement.
 status: active
 tags: [llm, architecture, reference, runtime, state-machine, agents, workflow]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: AI framework architects and implementors
 ---
@@ -245,7 +245,4 @@ Define for each phase whether a human decision gate is required before proceedin
 
 ## Related Documents
 
-- [LLM Budget-Friendly Design Appendix](./llm-budget-friendly-design-appendix.md) — core design procedure and conceptual principles
-- [LLM Budget-Friendly Design Templates](./llm-budget-friendly-design-templates.md) — design templates for state models, phase contracts, skills, agents, and prompts with YAML examples
-- [Reference File Standards](./reference-standards.md) — standards governing all reference files in this repository
-- [LLM Budget-Friendly Design](./llm-budget-friendly-design.md) — core principles document
+- [LLM Budget-Friendly Design](llm-budget-friendly-design.md) — the core philosophy this document is part of

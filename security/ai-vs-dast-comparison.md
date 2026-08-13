@@ -3,7 +3,7 @@ title: AI vs Traditional DAST Scanner Vulnerability Delegation
 description: Decision framework for delegating vulnerability testing between AI and traditional DAST scanners, with delegation matrix, recommended workflow, and counter-evidence.
 status: active
 tags: [security, penetration-testing, dast, ai-testing, vulnerability-assessment, web-security]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: web application security testing, penetration testing workflow
 ---
@@ -456,9 +456,6 @@ Use this wording instead of an absolute AI-vs-scanner split:
 
 - [AI vs DAST Comparison: Deep Dives](ai-vs-dast-comparison-deep-dives.md) — per-vulnerability type descriptions for all 30 AI and DAST-delegated categories
 - [AI vs DAST Comparison: Evidence Base](ai-vs-dast-comparison-evidence.md) — full evidence base, citation mapping, and references
-- [AI vs SAST/SCA/Secret Scanning Delegation Model](ai-vs-sast-comparison.md) — secure code review delegation for static analysis tools
-- [Reference File Standards](reference-standards.md) — structural standards for all reference files in this repository
-
 ## References
 
 The decision framework is supported by AI cyber-agent studies, OWASP guidance, and DAST scanner documentation. See the [Evidence Base](ai-vs-dast-comparison-evidence.md) file for the full reference list and citation mapping.

@@ -3,7 +3,7 @@ title: LLM Budget-Friendly Design Templates
 description: Design guidance and YAML templates for AI framework components — state models, phase contracts, skills, agents, prompts, and supporting template examples.
 status: active
 tags: [llm, design, templates, yaml, state-model, phase-contracts, skills, agents]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: AI framework implementors
 ---
@@ -414,7 +414,4 @@ Can it be tested without an LLM?
 
 ## Related Documents
 
-- [LLM Budget-Friendly Design Appendix](./llm-budget-friendly-design-appendix.md) — core design procedure and conceptual principles
-- [LLM Budget-Friendly Reference Architecture](./llm-budget-friendly-design-arch.md) — reference architecture for budget-friendly AI frameworks
-- [Reference File Standards](./reference-standards.md) — standards governing all reference files in this repository
-- [LLM Budget-Friendly Design](./llm-budget-friendly-design.md) — core principles document
+- [LLM Budget-Friendly Design](llm-budget-friendly-design.md) — the core philosophy this document is part of

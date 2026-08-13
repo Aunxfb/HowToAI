@@ -33,16 +33,29 @@ SECTION_DESCRIPTIONS = {
     "skills": (
         "Skill (SKILL.md) authoring, best practices, and platform-specific features."
     ),
-    "scripting": (
-        "Deterministic scripts for AI agent execution."
+    "ai-tooling": (
+        "Tooling for AI agent execution: deterministic scripts and MCP "
+        "server best practices."
+    ),
+    "harnesses": (
+        "Platform-specific best practices, workspace configuration, and "
+        "official documentation indexes."
+    ),
+    "documentation": (
+        "Repository documentation standards and reference-file templates."
+    ),
+    "security": (
+        "Security testing and vulnerability assessment references."
+    ),
+    "design": (
+        "Design and architecture guidance for AI systems."
     ),
     "misc": (
-        "Cross-cutting topics: platform best practices, security comparisons, "
-        "LLM design, and documentation standards."
+        "Cross-cutting topics not covered by the other sections."
     ),
 }
 
-SECTION_ORDER = ["agents", "skills", "scripting", "misc"]
+SECTION_ORDER = ["agents", "skills", "ai-tooling", "harnesses", "documentation", "security", "design", "misc"]
 
 
 # ── frontmatter parsing ──────────────────────────────────────────────

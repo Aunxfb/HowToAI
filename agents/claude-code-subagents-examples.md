@@ -3,7 +3,7 @@ title: Claude Code Subagent Examples
 description: Ready-to-use subagent configurations for Claude Code — code reviewer, debugger, data scientist, and database query validator with hooks.
 status: active
 tags: [claude-code, subagents, examples, hooks, copy-safe]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: Claude Code
 ---
@@ -204,7 +204,4 @@ The hook receives JSON via stdin with the Bash command in `tool_input.command`. 
 
 ## Related Documents
 
-- [Claude Code Subagents](claude-code-subagents.md) — overview, built-in agents, usage, and workflows
 - [Claude Code Subagent Configuration](claude-code-subagents-configure.md) — complete configuration reference
-- [Best Practices for AGENTS.md Files](agents-best-practices.md) — architecture, sizing, and production templates
-- [Codex Subagents](codex-subagents.md) — subagent workflows and custom agents in OpenAI Codex

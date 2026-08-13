@@ -3,8 +3,8 @@ title: AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence
 description: Supporting and contradictory evidence, all 13 references with citations, and claim mapping for the AI vs SAST/SCA/secret scanning delegation model.
 status: active
 tags: [ai, sast, sca, evidence, references, security, code-review]
-last_verified: 2026-07-29
-layer: warm
+last_verified: 2026-08-13
+layer: cold
 applies_to: secure code review delegation decisions
 ---
 
@@ -302,6 +302,4 @@ Use this to support the statement: "SBOMs and SCA are necessary for dependency g
 
 ## Related Documents
 
-- [AI vs SAST/SCA/Secret Scanning Delegation Model for Secure Code Review](ai-vs-sast-comparison.md) -- main delegation reference with decision matrices, operating principles, and workflow
-- [AI vs DAST Comparison](ai-vs-dast-comparison.md) -- counterpart for dynamic analysis tool delegation
-- [Reference File Standards](reference-standards.md) -- structural conventions used by all reference files
+- [AI vs SAST/SCA/Secret Scanning Delegation Model for Secure Code Review](ai-vs-sast-comparison.md) -- the delegation model this evidence base supports

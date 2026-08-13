@@ -3,7 +3,7 @@ title: LLM Budget-Friendly Design Appendix
 description: Practical engineering procedure for designing AI frameworks — state machine first, task decomposition, operation classification, LLM eligibility, evaluation, and avoiding overengineering.
 status: active
 tags: [llm, design, procedure, state-machine, task-decomposition, evaluation]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: AI framework designers and architects
 ---
@@ -214,7 +214,4 @@ Would the system be simpler without it?
 
 ## Related Documents
 
-- [LLM Budget-Friendly Design Templates](./llm-budget-friendly-design-templates.md) — design templates for state models, phase contracts, skills, agents, and prompts with YAML examples
-- [LLM Budget-Friendly Reference Architecture](./llm-budget-friendly-design-arch.md) — reference architecture for budget-friendly AI frameworks covering system overview, project structure, runtime loop, and failure handling
-- [Reference File Standards](./reference-standards.md) — standards governing all reference files in this repository
-- [LLM Budget-Friendly Design](./llm-budget-friendly-design.md) — core principles document
+- [LLM Budget-Friendly Design](llm-budget-friendly-design.md) — the core philosophy this document is part of

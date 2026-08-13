@@ -3,7 +3,7 @@ title: Porting Agents and Skills Between Harnesses
 description: Field guide for migrating agent and skill definitions between OpenCode, Claude Code, and OpenAI Codex. For developers maintaining multi-platform AI coding configurations.
 status: active
 tags: [agents, skills, porting, opencode, claude-code, codex, migration]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: OpenCode, Claude Code, OpenAI Codex
 ---
@@ -570,8 +570,4 @@ After porting between platforms, verify:
 
 ## Related Documents
 
-- [Best Practices for AGENTS.md Files](agents-best-practices.md) — architecture, sizing, and production templates for AGENTS.md
-- [OpenCode Agents](opencode-agents.md) — configuring and using agents in OpenCode
-- [Claude Code Subagents](claude-code-subagents.md) — creating and managing subagents in Claude Code
-- [Codex Subagents](codex-subagents.md) — subagent workflows and custom agents in OpenAI Codex
-- [Codex Agent Conversion](codex-agent-conversion.md) — mapping OpenCode agents to Codex-compatible structure
+- [Codex Agent Conversion](codex-agent-conversion.md) — the OpenCode-to-Codex conversion guide this field guide supports

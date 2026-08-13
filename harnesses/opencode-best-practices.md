@@ -3,7 +3,7 @@ title: OpenCode Best Practices Guide
 description: Optimal formats, structures, and constraints for designing OpenCode configurations, agents, and skills to maximize efficiency and reduce token waste.
 status: active
 tags: [opencode, best-practices, agents, skills, configuration]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: hot
 applies_to: opencode configuration files
 ---
@@ -48,8 +48,3 @@ Tools are functional extensions that allow the AI to execute code.
 - **Schema**: always include `"$schema": "https://opencode.ai/config.json"` for IDE validation.
 - **Permission Mapping**: use `allow`, `ask`, or `deny`. Use wildcards for groups (e.g., `"deploy-*": "ask"`).
 - **Formatters**: disable by default; enable specifically for languages you want auto-cleaned.
-
-## Related Documents
-
-- [OpenCode References](../misc/opencode-references.md) — central index of OpenCode documentation links.
-- [Reference Standards](../misc/reference-standards.md) — the conventions this document follows.

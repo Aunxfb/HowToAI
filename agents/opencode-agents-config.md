@@ -3,7 +3,7 @@ title: OpenCode Agent Configuration
 description: Complete reference for configuring agents in OpenCode — JSON config, markdown agents, permissions, models, and all available options.
 status: active
 tags: [opencode, agents, configuration, permissions, options]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: OpenCode CLI
 ---
@@ -560,7 +560,4 @@ These additional options are model and provider-specific. Check your provider's 
 
 ## Related Documents
 
-- [Agents](opencode-agents.md) — overview, built-in agents, usage, and examples
-- [Agents Best Practices](agents-best-practices.md) — conventions for AGENTS.md structuring and agent behavior
-- [Porting Agents and Skills Between Harnesses](opencode-claude-codex-porting.md) — converting agent/skill definitions across platforms
-- [OpenCode Best Practices](../misc/opencode-best-practices.md) — general best practices for OpenCode usage
+- [Agents](opencode-agents.md) — the overview this configuration reference is part of

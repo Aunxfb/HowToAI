@@ -3,7 +3,7 @@ title: AI-Friendly Plan Authoring and Execution -- Evidence
 description: Claim-by-claim verification of the seven authoring properties and five execution rules, supporting and contradictory evidence, and all 29 references with citation mapping.
 status: active
 tags: [ai, planning, agents, evidence, references, verification, handoff]
-last_verified: 2026-08-03
+last_verified: 2026-08-13
 layer: cold
 applies_to: implementation plans, task checklists, agent-executed work
 ---
@@ -546,10 +546,4 @@ Reward-tampering research contradicts reliance on instruction alone [5]. The sam
 
 ## Related Documents
 
-- [AI-Friendly Plan Authoring and Execution](ai-friendly-planning.md) — the standard this evidence supports.
-- [Reference File Standards](reference-standards.md) — the conventions this document follows.
-- [AI vs SAST/SCA/Secret Scanning Delegation Model -- Evidence](ai-vs-sast-comparison-evidence.md) — the evidence-file pattern this document mirrors.
-
----
-
-*Last verified: 2026-08-03 — update this date when content is reviewed or changed.*
+- [AI-Friendly Plan Authoring and Execution](ai-friendly-planning.md) — the standard this evidence base verifies

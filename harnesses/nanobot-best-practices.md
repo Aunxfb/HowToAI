@@ -3,7 +3,7 @@ title: Nanobot Best Practices for AI Customization
 description: Practical guide for designing, customizing, and operating high-quality nanobot agents using the HKUDS framework, covering file-based cognition, memory, skills, and security.
 status: active
 tags: [nanobot, agents, best-practices, customization, hkuds]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: nanobot agent framework
 ---
@@ -97,8 +97,3 @@ Fine-tune `channels` settings per platform. Turn progress indicators off for cha
 - Open-ended loop definitions — high `maxToolIterations` without strict stop criteria.
 - Unprotected global inbound channels — enabling Telegram or Discord without populating `allowFrom`.
 - Over-agentification — creating sub-agents for minor linear tasks a single model turn could solve directly.
-
-## Related Documents
-
-- [Reference Standards](../misc/reference-standards.md) — the conventions this document follows.
-- [OpenCode Best Practices](../misc/opencode-best-practices.md) — comparable practices for OpenCode agents.

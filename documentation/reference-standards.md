@@ -3,9 +3,9 @@ title: Reference File Standards
 description: Defines the consistent structure, frontmatter, writing style, and quality checklist for all reference documents in this repository, serving both human readers and AI coding agents.
 status: active
 tags: [standards, reference, documentation, frontmatter, quality]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
-applies_to: all reference files under misc/
+applies_to: all reference files in this repository
 ---
 
 # Reference File Standards
@@ -91,7 +91,7 @@ applies_to: <platform, component, or concept this covers>
 ### Naming Conventions
 
 - **Files**: `kebab-case.md`. Descriptive but concise. Examples: `agents-best-practices.md`, `ai-vs-sast-comparison.md`.
-- **Directories**: Short, lowercase. One or two words. Examples: `agents/`, `scripting/`, `skills/`.
+- **Directories**: Short, lowercase. One or two words. Examples: `agents/`, `skills/`, `programming/`.
 - **Sections**: `## Title Case Heading`. Stable across files of the same type.
 
 ### Required Sections
@@ -122,11 +122,9 @@ The body. Structure depends on document type. Use stable headings that describe 
 
 ## Related Documents
 
-Links to other files in the repository using relative paths. Use descriptive link text.
+(Optional — links to the file's in-scope companion references. Omit when there are none.)
 
-```markdown
-- [Agent Best Practices](../agents/agents-best-practices.md) — definitive guide to AGENTS.md structure
-```
+Companion links along the hot→warm→cold hierarchy, in either direction. See the cross-referencing rules below.
 
 ## References
 
@@ -202,6 +200,8 @@ Every example **MUST** be labeled by intent:
 
 ### Within the Repository
 
+- Cross-references are **companion links along the hot→warm→cold hierarchy**, and they may run in either direction: an overview links down to its deeper references (hot→warm, hot→cold, warm→cold), and a deep reference links back up to its overview (cold→warm, warm→hot). Peer links (warm↔warm, hot↔hot) and governance/meta links (content files must not link to `reference-standards.md` or `reference-template.md`) are disallowed — those are repo conventions reachable via `AGENTS.md` and the README index.
+- If a file has no in-scope companion, omit the section entirely.
 - Use **relative markdown links** to reference other files. Example: `[Skills Best Practices](../skills/skills-best-practices.md)`.
 - Link text **MUST** describe what the linked document contains. "See [Agent Best Practices](../agents/agents-best-practices.md)" not "See here."
 - When a concept is documented in multiple files, the primary definition lives in one file and all others link to it.
@@ -258,13 +258,10 @@ For every file:
 - [ ] Every example labeled by intent
 - [ ] All relative links are valid
 - [ ] Terminology is consistent within file and with related files
-- [ ] Cross-references exist to related files
+- [ ] Cross-references, if present, are in-scope companion links along the hot→warm→cold hierarchy (overview→deeper, or deep reference→overview)
 - [ ] File fits the progressive disclosure layer (hot/warm/cold) appropriate for its content
 - [ ] Commands are copy-paste runnable or explicitly marked as placeholders
 
 ## Related Documents
 
 - [Reference Template](reference-template.md) — template for creating new files that follow these standards.
-- [LLM Budget-Friendly Design](llm-budget-friendly-design.md) — core design philosophy for efficient AI systems.
-- [AI vs SAST/SCA/Secret Scanning Delegation Model](ai-vs-sast-comparison.md) — secure code review delegation reference.
-- [AI vs DAST Comparison](ai-vs-dast-comparison.md) — AI vs DAST scanner delegation framework.

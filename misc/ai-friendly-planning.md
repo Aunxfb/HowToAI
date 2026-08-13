@@ -3,7 +3,7 @@ title: AI-Friendly Plan Authoring and Execution
 description: Standards for drafting implementation plans that AI agents can execute autonomously and incrementally, and the rules agents must follow when executing them. Backed by published research and industry engineering practice.
 status: active
 tags: [planning, agents, ai-friendly, documentation, execution, handoff, verification]
-last_verified: 2026-08-03
+last_verified: 2026-08-13
 layer: warm
 applies_to: implementation plans, task checklists, agent-executed work, any harness
 ---
@@ -115,7 +115,7 @@ Seven properties make a plan AI-friendly. Each lists its verdict against the evi
 
 **Rule:** Plans carry frontmatter and predictable sections, and declare the harness format when they target one (spec-kit tasks, Kiro `tasks.md`, plain markdown checklist, etc.).
 
-**Why:** Structured formats are machine-legible contracts: AGENTS.md files use YAML frontmatter plus structured sections [13][14]; OpenCode agents are defined in markdown with YAML frontmatter [23]; Anthropic recommends organizing prompts into distinct, titled sections [10]; Kiro and spec-kit plans follow fixed templates [12][19]. Because plans are living documents (Execution Rule 1), freshness metadata (`status`, `last_updated`) tells the next executor whether the plan still reflects reality — a stale plan is worse than none (see [reference-standards](reference-standards.md)).
+**Why:** Structured formats are machine-legible contracts: AGENTS.md files use YAML frontmatter plus structured sections [13][14]; OpenCode agents are defined in markdown with YAML frontmatter [23]; Anthropic recommends organizing prompts into distinct, titled sections [10]; Kiro and spec-kit plans follow fixed templates [12][19]. Because plans are living documents (Execution Rule 1), freshness metadata (`status`, `last_updated`) tells the next executor whether the plan still reflects reality — a stale plan is worse than none (see [reference-standards](../documentation/reference-standards.md)).
 
 **Minimum fields:** `title`, `status`, `last_updated`, `harness` (if any), and per-task checkboxes. See the template below.
 
@@ -266,11 +266,6 @@ harness: <plain | spec-kit | kiro | other>
 ## Related Documents
 
 - [AI-Friendly Plan Authoring and Execution — Evidence](ai-friendly-planning-evidence.md) — claim-by-claim verification of the seven properties and five rules, contradictory evidence, and full citations.
-- [Reference File Standards](reference-standards.md) — the conventions this document follows; its freshness and structure rules are the basis for Property 7.
-- [Best Practices for AGENTS.md Files](../agents/agents-best-practices.md) — the standing-instructions complement to per-task plans.
-- [LLM Budget-Friendly Design Patterns](llm-budget-friendly-design-patterns.md) — externalized memory and file-based state passing patterns that underpin Execution Rules 1 and 5.
-- [OpenCode Best Practices Guide](opencode-best-practices.md) — harness-level configuration for plan/build separation.
-
 ## References
 
 1. Valmeekam et al., "PlanBench: An Extensible Benchmark for Evaluating Large Language Models on Planning and Reasoning about Change," NeurIPS 2023 D&B. https://arxiv.org/abs/2206.10498

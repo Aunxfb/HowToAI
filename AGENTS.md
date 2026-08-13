@@ -20,13 +20,13 @@ After all candidates are added, run the regenerate_index.py script to udpate the
 5. **Cold files (❄️)** — deep references (500+ lines): evidence bases, deep dives, templates, appendices. Fetch via their links only when the task actually requires the depth.
 6. **Follow `## Related Documents` sections** for deeper context within a topic.
 
-Layer defaults (when a file has no `layer` field): root files default to `hot`, subdirectory files default to `warm`. See `misc/reference-standards.md` for the full layer definitions and quality rules.
+Layer defaults (when a file has no `layer` field): root files default to `hot`, subdirectory files default to `warm`. See `documentation/reference-standards.md` for the full layer definitions and quality rules.
 
 ## Conventions
 
 - **Edit only what the task requires.** Do not add code comments unless asked.
 - **Never commit secrets.**
-- **Keep reference files standards-compliant** — follow `misc/reference-standards.md` (frontmatter, section headings, layer sizing).
+- **Keep reference files standards-compliant** — follow `documentation/reference-standards.md` (frontmatter, section headings, layer sizing).
 - **After adding, renaming, or re-linking reference files**, regenerate the README index:
 
   ```

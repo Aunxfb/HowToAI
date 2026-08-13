@@ -3,7 +3,7 @@ title: Claude Code Subagents
 description: Overview of Claude Code subagent system — built-in agents, quickstart, usage patterns, workflows, and forking.
 status: active
 tags: [claude-code, subagents, agents, workflows]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: Claude Code
 ---
@@ -460,8 +460,3 @@ Now that you understand subagents, explore these related features:
 ## Related Documents
 
 - [Claude Code Subagent Configuration](claude-code-subagents-configure.md) — complete configuration reference (scope, frontmatter, models, permissions, hooks)
-- [Claude Code Subagent Examples](claude-code-subagents-examples.md) — ready-to-use subagent configurations
-- [Best Practices for AGENTS.md Files](agents-best-practices.md) — architecture, sizing, and production templates
-- [OpenCode Agents](opencode-agents.md) — configuring and using agents in OpenCode
-- [Porting Agents and Skills Between Harnesses](opencode-claude-codex-porting.md) — converting agent/skill definitions across platforms
-- [Codex Subagents](codex-subagents.md) — subagent workflows and custom agents in OpenAI Codex

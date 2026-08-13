@@ -3,7 +3,7 @@ title: Nanobot Persona Engineering Guide
 description: How to build production-grade, instruction-drift-resistant workspace personas for the HKUDS/nanobot framework.
 status: active
 tags: [nanobot, personas, agents, workspace, prompt-engineering]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: HKUDS/nanobot
 ---
@@ -181,8 +181,3 @@ requires: psycopg2-binary, sqlparse
 * ❌ **Deploying a Local `soul.json` File:** As noted, this is a completely invalid pattern. The framework ignores metadata schemas inside the workspace directory. Route all operational parameters through `~/.nanobot/config.json`.
 * ❌ **Mixing Personality with Operational Workflow:** Placing file editing or tool constraints inside `SOUL.md`. If you tell the bot to "Always use bash tools" in `SOUL.md`, you risk confusing its core reasoning identity during non-technical interactions.
 * ❌ **Failing to Track Token Budgets:** Letting `AGENTS.md` slide past 1,500 tokens. This causes the model to suffer from "lost-in-the-middle" vulnerabilities, completely ignoring tool execution constraints listed at the bottom of your file. Keep these documents sharp, declarative, and highly compressed.
-
-## Related Documents
-
-- [Agents Best Practices](agents-best-practices.md) — conventions for AGENTS.md structuring and agent behavior
-- [OpenCode Agents](opencode-agents.md) — agent configuration for the OpenCode CLI tool

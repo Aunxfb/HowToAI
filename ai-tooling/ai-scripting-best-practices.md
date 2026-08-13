@@ -3,7 +3,7 @@ title: Best Practices for Writing AI-Optimized Scripts
 description: Architectural and stylistic principles for writing code optimized for execution by AI agents and LLM code interpreters.
 status: active
 tags: [ai-scripting, best-practices, llm, code-interpreter]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: scripting, AI agents, LLM code interpreters
 ---
@@ -122,10 +122,3 @@ For any AI-optimized script, verify the following before deployment:
 2. **Zero In-Loop Interactivity:** Are all blocking console inputs and windowed GUI requests stripped out completely?
 3. **Structured Verbose Output:** Does the script explicitly communicate structural states, matrix configurations, and task completions to stdout?
 4. **Actionable Error Interception:** If a critical operational step fails, does the output provide context clues to help an LLM autonomously re-engineer the script?
-
-## Related Documents
-
-- [Reference File Standards](../misc/reference-standards.md) — structural conventions for all reference documents in this repository
-- [Agent Best Practices](../agents/agents-best-practices.md) — writing AGENTS.md files for AI agent configuration
-- [LLM Budget-Friendly Design](../misc/llm-budget-friendly-design.md) — minimizing token consumption in AI-oriented code
-- [Workspace Best Practices](../misc/codex-workspace-best-practices.md) — structuring workspaces for AI agent productivity

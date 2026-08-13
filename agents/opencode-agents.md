@@ -3,7 +3,7 @@ title: Agents
 description: Overview of OpenCode agent system — built-in agents, types, usage, creating agents, use cases, and example configurations.
 status: active
 tags: [opencode, agents, subagents, built-in]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: OpenCode CLI
 ---
@@ -234,7 +234,3 @@ Look for:
 ## Related Documents
 
 - [Agent Configuration Reference](opencode-agents-config.md) — all config options, permissions, models, and examples
-- [Agents Best Practices](agents-best-practices.md) — conventions for AGENTS.md structuring and agent behavior
-- [Porting Agents and Skills Between Harnesses](opencode-claude-codex-porting.md) — converting agent/skill definitions across platforms
-- [Codex Agent Conversion](codex-agent-conversion.md) — migrating existing agent setups to OpenAI Codex
-- [OpenCode Best Practices](../misc/opencode-best-practices.md) — general best practices for OpenCode usage

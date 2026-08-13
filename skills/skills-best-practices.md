@@ -3,7 +3,7 @@ title: Skills Best Practices for AI Assistants
 description: Guidelines for creating, reviewing, and maintaining Skills that make AI assistants more reliable at repeatable tasks through focused instructions and clear workflow guidance.
 status: active
 tags: [skills, best-practices, skill-design, agent-instructions]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: cold
 applies_to: SKILL.md, agent skills, skill authors
 ---
@@ -755,5 +755,4 @@ A Skill is successful when it helps the assistant perform a repeatable task bett
 
 ## Related Documents
 
-- [Nanobot Skills](../skills/nanobot-skills.md) — nanobot-specific skill features including SkillsLoader and MCP server pairing
-- [Reference File Standards](../misc/reference-standards.md) — standards for reference documents in this repository
+- [Nanobot Skills](nanobot-skills.md) — nanobot-specific skill features built on these practices

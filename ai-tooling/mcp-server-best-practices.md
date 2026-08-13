@@ -3,7 +3,7 @@ title: MCP Server Best Practices
 description: Practical rules and release checks for designing reliable, efficient, secure, and agent-usable Model Context Protocol servers.
 status: active
 tags: [mcp, servers, tools, security, evaluation, reliability]
-last_verified: 2026-08-07
+last_verified: 2026-08-13
 layer: warm
 applies_to: Model Context Protocol servers and agent-facing tools
 ---
@@ -206,7 +206,3 @@ Block release for any protocol conformance failure in a claimed profile, cross-t
 ## Related Documents
 
 - [MCP Server Best Practices Deep Reference](mcp-server-best-practices-deep-reference.md) - full evidence base, protocol details, templates, threat model, and evaluation program.
-- [Nanobot Skills](../skills/nanobot-skills.md) - guidance for pairing skills with MCP servers.
-- [Skills Best Practices for AI Assistants](../skills/skills-best-practices.md) - design rules for tool-dependent skills.
-- [LLM Budget-Friendly Design Patterns](llm-budget-friendly-design-patterns.md) - context, state, and interface patterns for efficient AI systems.
-- [Reference File Standards](reference-standards.md) - repository documentation conventions.

@@ -3,7 +3,7 @@ title: Codex Subagents
 description: Reference for subagent workflows in OpenAI Codex, including custom agents, model selection, sandbox controls, and batch processing patterns.
 status: active
 tags: [codex, subagents, agents, configuration, openai]
-last_verified: 2026-07-29
+last_verified: 2026-08-13
 layer: warm
 applies_to: OpenAI Codex
 ---
@@ -372,10 +372,3 @@ This setup works well for prompts like:
 ```text
 Investigate why the settings modal fails to save. Have browser_debugger reproduce it, code_mapper trace the responsible code path, and ui_fixer implement the smallest fix once the failure mode is clear.
 ```
-
-## Related Documents
-
-- [Agents Best Practices](agents-best-practices.md) — conventions for AGENTS.md structuring and agent behavior
-- [Claude Code Subagents](claude-code-subagents.md) — subagent workflows in Anthropic Claude Code
-- [Codex Agent Conversion](codex-agent-conversion.md) — migrating existing agent setups to OpenAI Codex
-- [OpenCode Agents](opencode-agents.md) — agent configuration for the OpenCode CLI tool
