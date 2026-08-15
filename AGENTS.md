@@ -6,16 +6,15 @@ Project-level rules for AI agents working in this repository. Auto-loaded at ses
 
 This repository is a knowledge base of Applied AI reference documents. Files are organized by progressive-disclosure layers so agents can load only what a task needs. Load lazily; never dump the whole repo into context.
 
-## Adding New (External) References
-When adding new references or best practice guide not drafted within this repo, check the `toadd` folder, then also reference the `reference-standards.md` and `reference-template.md` to make sure the newly added references are comforming to the repo convention. Evaluate if the reference file itselfcan be split for more effective guidance and make recommendations.
-
-After all candidates are added, run the regenerate_index.py script to udpate the index under README.md.
-
 ## New Reference Ideas and Planning
 
 Any new reference file ideas or planning for this repository goes into the `ToDo/` folder as a plan before drafting the actual reference file. Follow `misc/ai-friendly-planning.md` when writing plans so they are executable by AI agents. Keep ideas and plans in `ToDo/`; the reference files themselves live in their topical directory.
 
+**Fact-checking requirement:** When creating a new reference file from a `ToDo/` plan, fact-check all content through deep web research before finalizing. Do not rely solely on model priors — verify claims, numbers, API names, and citations against primary sources (official docs, vendor pages, papers) found via web search.
+
 When executing a plan: update the plan's handoff notes at every state change (see `misc/ai-friendly-planning.md` execution rules). Once a plan is fully implemented, remove its plan file from `ToDo/`.
+
+After candidates are added, run the regenerate_index.py script to udpate the index under README.md.
 
 ## Loading Protocol
 

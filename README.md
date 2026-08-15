@@ -88,6 +88,14 @@ Design and architecture guidance for AI systems.
 | [llm-budget-friendly-design-templates.md](design/llm-budget-friendly-design-templates.md) | ☀️ | LLM Budget-Friendly Design Templates | Design guidance and YAML templates for AI framework components — state models, phase contracts, skills, agents, prompts, and supporting template examples. |
 | [llm-budget-friendly-design.md](design/llm-budget-friendly-design.md) | ☀️ | LLM Budget-Friendly Design | Core philosophy and actionable principles for designing efficient, reliable, and scalable AI systems that minimize unnecessary LLM usage. |
 
+### webdev/
+
+Building web applications with AI coding agents and open-source tooling.
+
+| File | Layer | Title | Description |
+|------|-------|-------|-------------|
+| [ai-web-development-open-tooling.md](webdev/ai-web-development-open-tooling.md) | ☀️ | AI Web Development with Open-Source Tooling | How developers can build web applications with AI using open-source, self-hosted tools — bridging the text-to-UI gap and the "AI can't see the rendered page" gap with browser automation, browser MCP servers, screenshots, and open coding agents. |
+
 ### misc/
 
 Cross-cutting topics not covered by the other sections.
@@ -153,6 +161,10 @@ Warm overviews branch into their companions — deep references and related guid
     ├── [LLM Budget-Friendly Design — Operating](design/llm-budget-friendly-design-operating.md) (☀️)
     ├── [LLM Budget-Friendly Design Patterns](design/llm-budget-friendly-design-patterns.md) (☀️)
     └── [LLM Budget-Friendly Design Templates](design/llm-budget-friendly-design-templates.md) (☀️)
+```
+### webdev/
+```
+└── [AI Web Development with Open-Source Tooling](webdev/ai-web-development-open-tooling.md) (☀️)
 ```
 ### misc/
 ```

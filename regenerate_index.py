@@ -53,9 +53,12 @@ SECTION_DESCRIPTIONS = {
     "misc": (
         "Cross-cutting topics not covered by the other sections."
     ),
+    "webdev": (
+        "Building web applications with AI coding agents and open-source tooling."
+    ),
 }
 
-SECTION_ORDER = ["agents", "skills", "ai-tooling", "harnesses", "documentation", "security", "design", "misc"]
+SECTION_ORDER = ["agents", "skills", "ai-tooling", "harnesses", "documentation", "security", "design", "webdev", "misc"]
 
 
 # ── frontmatter parsing ──────────────────────────────────────────────
