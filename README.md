@@ -41,6 +41,7 @@ Tooling for AI agent execution: deterministic scripts and MCP server best practi
 | File | Layer | Title | Description |
 |------|-------|-------|-------------|
 | [ai-scripting-best-practices.md](ai-tooling/ai-scripting-best-practices.md) | ☀️ | Best Practices for Writing AI-Optimized Scripts | Architectural and stylistic principles for writing code optimized for execution by AI agents and LLM code interpreters. |
+| [harness-toolset-best-practices.md](ai-tooling/harness-toolset-best-practices.md) | ☀️ | Harness Toolset Best Practices | How to design, implement, and evaluate an agent harness's internal toolset so both frontier and smaller local tool-calling models select, parameterize, and recover from tools efficiently. |
 | [mcp-server-best-practices-deep-reference.md](ai-tooling/mcp-server-best-practices-deep-reference.md) | ❄️ | MCP Server Best Practices Deep Reference | Evidence base, protocol detail, templates, and evaluation guidance for architects and AI engineers building reliable and secure Model Context Protocol servers. |
 | [mcp-server-best-practices.md](ai-tooling/mcp-server-best-practices.md) | ☀️ | MCP Server Best Practices | Practical rules and release checks for designing reliable, efficient, secure, and agent-usable Model Context Protocol servers. |
 
@@ -131,6 +132,7 @@ Warm overviews branch into their companions — deep references and related guid
 ### ai-tooling/
 ```
 ├── [Best Practices for Writing AI-Optimized Scripts](ai-tooling/ai-scripting-best-practices.md) (☀️)
+├── [Harness Toolset Best Practices](ai-tooling/harness-toolset-best-practices.md) (☀️)
 └── [MCP Server Best Practices](ai-tooling/mcp-server-best-practices.md) (☀️)
     └── [MCP Server Best Practices Deep Reference](ai-tooling/mcp-server-best-practices-deep-reference.md) (❄️)
 ```
